@@ -21,6 +21,14 @@ const comparisonRows = [
   ["Shipping speed", "7–14 days", "1–3 business days"],
 ] as const;
 
+const tickerItems = [
+  { image: "/images/ticker/third-party-testing.png", title: "Third-party", copy: "tested" },
+  { image: "/images/ticker/batch-documentation.png", title: "Batch-level", copy: "documentation" },
+  { image: "/images/ticker/canadian-support.png", title: "Canadian", copy: "support" },
+  { image: "/images/ticker/discreet-fulfilment.png", title: "Discreet", copy: "fulfilment" },
+  { image: "/images/ticker/coa-quality.png", title: "COA-backed", copy: "quality" },
+];
+
 export default function Home() {
   return (
     <main>
@@ -44,11 +52,10 @@ export default function Home() {
       <section className="trust-strip" aria-label="Vitalis quality commitments">
         <div className="trust-track">
           {[0, 1].map((group) => <div className="trust-group" key={group} aria-hidden={group === 1 ? "true" : undefined}>
-            <p><b>Third-party</b> tested</p>
-            <p><b>Batch-level</b> documentation</p>
-            <p><b>Canadian</b> support</p>
-            <p><b>Discreet</b> fulfilment</p>
-            <p><b>COA-backed</b> quality</p>
+            {tickerItems.map((item) => <p key={item.title}>
+              <Image src={item.image} alt="" width={96} height={96} />
+              <span><b>{item.title}</b> {item.copy}</span>
+            </p>)}
           </div>)}
         </div>
       </section>

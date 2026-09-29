@@ -787,3 +787,22 @@ footer { padding-inline: max(32px, calc((100vw - 1320px) / 2)); }
   .trust-strip .trust-group p { height: 46px; min-height: 46px; padding-inline: 24px; font-size: 10px; }
   .trust-strip .trust-group p::after { margin-left: 24px; }
 }
+
+/* Exact EVLV ticker structure, adapted to Vitalis: light rail, generated
+   photographic medallions, and an uninterrupted continuous loop. */
+.trust-strip { height: 76px; min-height: 76px; background: #fff; color: var(--ink); border: 0; }
+.trust-track { height: 76px; animation: trustTicker 24s linear infinite; animation-play-state: running !important; }
+.trust-group { height: 76px; }
+.trust-strip .trust-group p { width: 285px; height: 76px; min-height: 76px; padding: 0 30px; display: flex; align-items: center; gap: 13px; border: 0; background: transparent; color: #687670; font-size: 11px; white-space: nowrap; }
+.trust-strip .trust-group p img { width: 48px; height: 48px; flex: 0 0 48px; object-fit: cover; border-radius: 50%; filter: drop-shadow(0 4px 7px rgba(11,47,44,.12)); }
+.trust-strip .trust-group p span { display: inline; width: auto; height: auto; margin: 0; background: transparent; color: inherit; font-family: Arial, Helvetica, sans-serif; font-style: normal; letter-spacing: 0; }
+.trust-strip .trust-group p b { color: var(--ink); font-size: 11px; }
+.trust-strip .trust-group p::after { display: none; }
+@media(max-width:650px){
+  .trust-strip, .trust-track, .trust-group { height: 66px; min-height: 66px; }
+  .trust-strip .trust-group p { width: 242px; height: 66px; min-height: 66px; padding: 0 20px; gap: 10px; font-size: 10px; }
+  .trust-strip .trust-group p img { width: 42px; height: 42px; flex-basis: 42px; }
+}
+@media(prefers-reduced-motion:reduce){
+  .trust-track { animation: trustTicker 24s linear infinite; }
+}
