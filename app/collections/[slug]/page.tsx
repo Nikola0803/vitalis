@@ -13,9 +13,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const collection = collections[slug as keyof typeof collections];
-  if (!collection) return { title: "Collection – Your Health Supply" };
+  if (!collection) return { title: "Collection – Vitalis" };
   return {
-    title: `${collection.name} – Your Health Supply`,
+    title: `${collection.name} – Vitalis`,
   };
 }
 

@@ -2,11 +2,11 @@ export default function TermsPage() {
   const sections = [
     {
       heading: "Disclaimer",
-      content: "The information on this website is provided to clearly define the intended use, limitations, and legal boundaries associated with all products offered by Your Health Supply. These guidelines apply to all website visitors, purchasers, affiliates, and partners.",
+      content: "The information on this website is provided to clearly define the intended use, limitations, and legal boundaries associated with all products offered by Vitalis. These guidelines apply to all website visitors, purchasers, affiliates, and partners.",
     },
     {
       heading: "Research Use Only",
-      content: "All products supplied by Your Health Supply are intended solely for laboratory research use by qualified professionals. They are not designed, sold, or approved for:",
+      content: "All products supplied by Vitalis are intended solely for laboratory research use by qualified professionals. They are not designed, sold, or approved for:",
       bullets: [
         "Human use",
         "Animal use",
@@ -25,7 +25,7 @@ export default function TermsPage() {
         "Veterinary recommendations",
         "Usage instructions or protocols",
       ],
-      footer: "Your Health Supply does not endorse, recommend, or permit the use of any product as a drug, supplement, therapy, or cosmetic ingredient.",
+      footer: "Vitalis does not endorse, recommend, or permit the use of any product as a drug, supplement, therapy, or cosmetic ingredient.",
     },
     {
       heading: "No Dosing or Usage Guidance Provided",
@@ -41,7 +41,7 @@ export default function TermsPage() {
     },
     {
       heading: "Purchaser Responsibilities",
-      content: "By purchasing from Your Health Supply, you confirm and agree that:",
+      content: "By purchasing from Vitalis, you confirm and agree that:",
       bullets: [
         "You understand the products are for laboratory research use only",
         "You are a qualified purchaser working within appropriate research frameworks",
@@ -52,7 +52,7 @@ export default function TermsPage() {
     },
     {
       heading: "No Guarantees of Suitability for Non-Research Purposes",
-      content: "Your Health Supply makes no claims or guarantees regarding the suitability, safety, or effectiveness of any product for any purpose outside laboratory research.",
+      content: "Vitalis makes no claims or guarantees regarding the suitability, safety, or effectiveness of any product for any purpose outside laboratory research.",
     },
     {
       heading: "Quality, Handling, and Storage Standards",
@@ -66,7 +66,7 @@ export default function TermsPage() {
     },
     {
       heading: "No Liability for Misuse",
-      content: "Your Health Supply is not liable for:",
+      content: "Vitalis is not liable for:",
       bullets: [
         "Improper use or handling of research materials",
         "Misinterpretation of content on this website",
@@ -81,7 +81,7 @@ export default function TermsPage() {
       bullets: [
         "Use research-only messaging",
         "Avoid any claims implying human use, results, or medical effects",
-        "Follow the Your Health Supply Affiliate Compliance Agreement",
+        "Follow the Vitalis Affiliate Compliance Agreement",
       ],
       footer: "Failure to comply may result in immediate removal from the program.",
     },
@@ -116,7 +116,7 @@ export default function TermsPage() {
         maxWidth: 680,
       }}>
         The information on this website is provided to clearly define the intended use, limitations,
-        and legal boundaries associated with all products offered by Your Health Supply. These
+        and legal boundaries associated with all products offered by Vitalis. These
         guidelines apply to all website visitors, purchasers, affiliates, and partners.
       </p>
 

@@ -2,7 +2,7 @@ import CollectionPage from "@/components/CollectionPage";
 import { supplies } from "@/lib/products";
 
 export const metadata = {
-  title: "Reconstitution Supplies – Your Health Supply",
+  title: "Reconstitution Supplies – Vitalis",
   description: "Everything you need to reconstitute and handle research peptides safely.",
 };
 

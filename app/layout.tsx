@@ -4,8 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Your Health Supply - Online Store for Quality Canadian Peptides",
-  description: "Your Health Supply provides CAS tested Peptides for Canadian's. All of our products are third party tested for purity and safety.",
+  title: "Vitalis - Online Store for Quality Canadian Peptides",
+  description: "Vitalis provides CAS tested Peptides for Canadians. All of our products are third party tested for purity and safety.",
   keywords: "peptides, research peptides, BPC-157, TB-500, Canadian peptides, GLP-1",
 };
 

@@ -22,12 +22,9 @@ export default function Header() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 0 }}>
           <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
             <span style={{ fontFamily: "'Prompt', sans-serif", fontWeight: 800, fontSize: 26, color: "#061406", letterSpacing: "-0.5px" }}>
-              yourhealth
+              Vitalis
             </span>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 13, color: "#061406", letterSpacing: "3px", marginTop: -2 }}>
-              SUPPLY
-            </span>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400, fontSize: 8, color: "#666", letterSpacing: "0.5px" }}>
+            <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400, fontSize: 8, color: "#666", letterSpacing: "0.5px", marginTop: 2 }}>
               Quality Advanced Health Products
             </span>
           </div>

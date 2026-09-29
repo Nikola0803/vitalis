@@ -29,7 +29,7 @@ export default function ContactPage() {
         lineHeight: 1.7,
         marginBottom: 40,
       }}>
-        At Your Health Supply, we believe trust is built through communication that&apos;s fast, clear, and human. If you have a question about an order, need documentation, or want to confirm product details or availability, our team is here to help.
+        At Vitalis, we believe trust is built through communication that&apos;s fast, clear, and human. If you have a question about an order, need documentation, or want to confirm product details or availability, our team is here to help.
       </p>
 
       {submitted ? (

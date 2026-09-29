@@ -37,7 +37,7 @@ export default function Footer() {
 
         <div style={{ marginTop: 48, paddingTop: 24, borderTop: "1px solid #1f2937", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
           <p style={{ color: "#6b7280", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>
-            © 2026 Your Health Supply
+            © 2026 Vitalis
           </p>
           <Link
             href="/pages/terms"

@@ -2,7 +2,7 @@ import CollectionPage from "@/components/CollectionPage";
 import { allProducts } from "@/lib/products";
 
 export const metadata = {
-  title: "Blended Compounds – Your Health Supply",
+  title: "Blended Compounds – Vitalis",
   description: "Pre-blended peptide combinations designed for enhanced research protocols.",
 };
 
