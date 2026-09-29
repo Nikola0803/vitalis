@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary: #6d9fab;
+  --primary-light: rgba(186, 223, 232, 0.15);
+  --primary-dark: #4a7d8b;
+  --text: #061406;
+  --bg: #ffffff;
+  --footer-bg: #0a0a0a;
+  --hero-bg: #daeef3;
+  --faq-bg: #b8d8e2;
+  --border: #e5e7eb;
+  --sale-red: #dc2626;
+  --badge-sale: #ef4444;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Prompt', sans-serif;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: var(--primary-light);
+  color: var(--text);
+  border: 1px solid rgba(186, 223, 232, 0.5);
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(186, 223, 232, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.sale-badge {
+  background: var(--badge-sale);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sold-out-badge {
+  background: #6b7280;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Size buttons */
+.size-btn {
+  padding: 8px 18px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.15s;
+  border-radius: 2px;
+}
+
+.size-btn:hover, .size-btn.active {
+  background: var(--text);
+  color: white;
+  border-color: var(--text);
+}
+
+/* Accordion */
+details summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
 }
