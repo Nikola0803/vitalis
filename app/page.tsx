@@ -156,20 +156,21 @@ export default function HomePage() {
       {/* Explore by category */}
       <section style={{ padding: "0 24px 64px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <h2 style={{
-            fontFamily: "'Prompt', sans-serif",
-            fontWeight: 700,
+          <h3 style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontWeight: 400,
             fontSize: 32,
             textAlign: "center",
             marginBottom: 40,
             color: "#061406",
+            letterSpacing: "-0.96px",
           }}>
             Explore by category
-          </h2>
+          </h3>
 
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+            gridTemplateColumns: "repeat(4, 1fr)",
             gap: 20,
           }}>
             {categoryCards.map((cat) => (
@@ -180,12 +181,11 @@ export default function HomePage() {
               >
                 <div style={{ cursor: "pointer" }}>
                   <div style={{
-                    borderRadius: 8,
+                    borderRadius: 20,
                     overflow: "hidden",
                     position: "relative",
-                    aspectRatio: "4/3",
-                    background: "#f3f4f6",
-                    marginBottom: 10,
+                    aspectRatio: "1/1",
+                    marginBottom: 12,
                   }}>
                     <Image
                       src={cat.image}
@@ -196,23 +196,23 @@ export default function HomePage() {
                     />
                   </div>
                   <p style={{
-                    fontFamily: "'DM Sans', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 14,
-                    color: "#061406",
-                    margin: "0 0 8px",
+                    fontFamily: "'Prompt', sans-serif",
+                    fontWeight: 400,
+                    fontSize: 18,
+                    color: "#000",
+                    margin: "0 0 10px",
                   }}>
                     {cat.name}
                   </p>
                   <span style={{
                     display: "inline-block",
-                    fontSize: 12,
+                    fontSize: 16,
+                    fontWeight: 400,
                     color: "white",
-                    background: "#6d9fab",
-                    padding: "5px 14px",
-                    borderRadius: 4,
+                    background: "rgb(109, 159, 171)",
+                    padding: "8px 24px",
+                    borderRadius: 5,
                     fontFamily: "'DM Sans', sans-serif",
-                    fontWeight: 600,
                   }}>
                     View All
                   </span>
@@ -226,20 +226,21 @@ export default function HomePage() {
       {/* Collections */}
       <section style={{ padding: "0 24px 80px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <h2 style={{
-            fontFamily: "'Prompt', sans-serif",
-            fontWeight: 700,
+          <h3 style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontWeight: 400,
             fontSize: 32,
             textAlign: "center",
             marginBottom: 40,
-            color: "#061406",
+            color: "#000",
+            letterSpacing: "-0.96px",
           }}>
             Collections
-          </h2>
+          </h3>
 
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+            gridTemplateColumns: "repeat(4, 1fr)",
             gap: 20,
           }}>
             {collectionCards.map((col) => (
@@ -248,13 +249,14 @@ export default function HomePage() {
                 href={`/collections/${col.slug}`}
                 style={{ textDecoration: "none", display: "block" }}
               >
-                <div style={{
-                  borderRadius: 12,
-                  overflow: "hidden",
-                  background: "#f3f4f6",
-                  padding: 0,
-                }}>
-                  <div style={{ aspectRatio: "4/3", position: "relative", background: "#e5e7eb" }}>
+                <div style={{ cursor: "pointer" }}>
+                  <div style={{
+                    borderRadius: 20,
+                    overflow: "hidden",
+                    position: "relative",
+                    aspectRatio: "1/1",
+                    marginBottom: 12,
+                  }}>
                     <Image
                       src={col.image}
                       alt={col.name}
@@ -263,31 +265,27 @@ export default function HomePage() {
                       unoptimized
                     />
                   </div>
-                  <div style={{ padding: "14px 16px" }}>
-                    <p style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      fontWeight: 700,
-                      fontSize: 15,
-                      color: "#061406",
-                      margin: "0 0 10px",
-                    }}>
-                      {col.name}
-                    </p>
-                    <button
-                      style={{
-                        border: "1px solid #d1d5db",
-                        background: "white",
-                        padding: "6px 18px",
-                        borderRadius: 3,
-                        fontSize: 12,
-                        fontFamily: "'DM Sans', sans-serif",
-                        cursor: "pointer",
-                        color: "#061406",
-                      }}
-                    >
-                      View All
-                    </button>
-                  </div>
+                  <p style={{
+                    fontFamily: "'Prompt', sans-serif",
+                    fontWeight: 400,
+                    fontSize: 18,
+                    color: "#000",
+                    margin: "0 0 10px",
+                  }}>
+                    {col.name}
+                  </p>
+                  <span style={{
+                    display: "inline-block",
+                    fontSize: 16,
+                    fontWeight: 400,
+                    color: "white",
+                    background: "rgb(109, 159, 171)",
+                    padding: "8px 24px",
+                    borderRadius: 5,
+                    fontFamily: "'DM Sans', sans-serif",
+                  }}>
+                    View All
+                  </span>
                 </div>
               </Link>
             ))}
