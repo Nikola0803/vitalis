@@ -1,5 +1,5 @@
 import CollectionPage from "@/components/CollectionPage";
-import { collections, allProducts, supplies } from "@/lib/products";
+import { collections, allProducts } from "@/lib/products";
 import { notFound } from "next/navigation";
 
 interface Props {

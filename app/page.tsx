@@ -1,364 +1,104 @@
-"use client";
-import Link from "next/link";
 import Image from "next/image";
-import ProductCard from "@/components/ProductCard";
-import ComparisonTable from "@/components/ComparisonTable";
-import { popularProducts, categoryCards, collectionCards } from "@/lib/products";
+import Link from "next/link";
+import ProductExplorer from "@/components/ProductExplorer";
+import { ArrowUpRight, CheckIcon, MapleMark, ResearchGlyph } from "@/components/Icons";
 
-export default function HomePage() {
+const categories = [
+  { number: "01", title: "Cellular & Anti-Aging", copy: "Research materials organized around cellular pathways.", kind: "cellular" as const },
+  { number: "02", title: "Tissue Repair", copy: "Compounds studied across repair and resilience protocols.", kind: "tissue" as const },
+  { number: "03", title: "Neuro Health", copy: "A focused collection for neurological research.", kind: "neuro" as const },
+  { number: "04", title: "Metabolic Health", copy: "Materials organized around metabolic research.", kind: "metabolic" as const },
+];
+
+const comparisonRows = [
+  ["Canadian GMP manufactured", false, true],
+  ["Canadian raw ingredients", false, true],
+  ["Canadian-certified lab testing", false, true],
+  ["Accessible original lab results", false, true],
+  ["Third-party purity testing", false, true],
+  ["Payment methods", "Limited", "Credit card & e-transfer"],
+  ["Live support", "Often unavailable", "Canadian email support"],
+  ["Shipping speed", "7–14 days", "1–3 business days"],
+] as const;
+
+export default function Home() {
   return (
-    <>
-      {/* Hero Section */}
-      <section style={{
-        background: "linear-gradient(135deg, #daeef3 0%, #eaf5f8 40%, #f0f9fc 70%, #e8f4f7 100%)",
-        padding: "80px 24px",
-        position: "relative",
-        overflow: "hidden",
-        minHeight: 600,
-        display: "flex",
-        alignItems: "center",
-      }}>
-        {/* Background video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 0,
-          }}
-        >
-          <source src="https://yourhealthsupply.ca/cdn/shop/videos/c/vp/05871c3d28a54bc5ba0325e7c43db680/05871c3d28a54bc5ba0325e7c43db680.HD-1080p-4.8Mbps-90530476.mp4?v=0" type="video/mp4" />
-        </video>
-        {/* White gradient overlay matching original: rgba(255,255,255,0.91) → transparent */}
-        <div style={{
-          position: "absolute",
-          top: 0, left: 0, right: 0, bottom: 0,
-          background: "linear-gradient(rgba(255,255,255,0.91), rgba(255,255,255,0))",
-          zIndex: 1,
-        }} />
-
-        <div style={{ maxWidth: 1280, margin: "0 auto", width: "100%", position: "relative", zIndex: 2, textAlign: "center" }}>
-          <div style={{ maxWidth: 620, margin: "0 auto" }}>
-            <h1 style={{
-              fontFamily: "'Prompt', sans-serif",
-              fontWeight: 400,
-              fontSize: 56,
-              color: "#061406",
-              lineHeight: 1.1,
-              marginBottom: 20,
-            }}>
-              Research Peptides &amp;<br />Professional Standards.
-            </h1>
-            <p style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: 16,
-              color: "#374151",
-              marginBottom: 36,
-              lineHeight: 1.6,
-            }}>
-              All Peptides 3rd party tested and verified<br />
-              for identity, purity, and consistency.
-            </p>
-
-            {/* Search */}
-            <div style={{
-              display: "flex",
-              background: "white",
-              borderRadius: 6,
-              border: "1px solid #d1d5db",
-              overflow: "hidden",
-              margin: "0 auto",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
-            }}>
-              <input
-                type="text"
-                placeholder="Search products..."
-                style={{
-                  flex: 1,
-                  padding: "14px 18px",
-                  border: "none",
-                  outline: "none",
-                  fontSize: 14,
-                  fontFamily: "'DM Sans', sans-serif",
-                  color: "#061406",
-                }}
-              />
-              <button
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  padding: "0 18px",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-                aria-label="Search"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-              </button>
-            </div>
-          </div>
+    <main>
+      <section className="hero" id="top">
+        <div className="hero-copy">
+          <p className="eyebrow">Canadian research supply, refined.</p>
+          <h1>Precision compounds.<br /><em>Canadian standard.</em></h1>
+          <p className="hero-lede">A cleaner approach to research materials—documented batches, third-party testing, and dependable Canadian fulfilment.</p>
+          <div className="hero-actions"><Link className="button button-light" href="/shop">Explore catalogue <ArrowUpRight /></Link><a className="text-link" href="#quality">See our standard <span>↘</span></a></div>
+          <div className="hero-proof"><div><CheckIcon size={15} /><span>99%+ tested purity</span></div><div><CheckIcon size={15} /><span>Batch-level COAs</span></div><div><CheckIcon size={15} /><span>Research use only</span></div></div>
+        </div>
+        <div className="hero-visual" aria-label="Vitalis blank specimen vial">
+          <div className="orbit orbit-one" /><div className="orbit orbit-two" />
+          <div className="visual-note note-top"><span>01</span> Universal specimen</div>
+          <Image priority src="/images/vitalis-blank-vial.png" alt="Blank specimen vial with teal cap" width={1024} height={1536} className="hero-vial" />
+          <div className="visual-note note-bottom"><span className="status-light" /> Batch identity verified</div>
+          <p className="visual-caption">THE VITALIS STANDARD / 2026</p>
         </div>
       </section>
 
-      {/* Popular Products */}
-      <section style={{ padding: "64px 24px" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <h2 style={{
-            fontFamily: "'Prompt', sans-serif",
-            fontWeight: 700,
-            fontSize: 32,
-            textAlign: "center",
-            marginBottom: 40,
-            color: "#061406",
-          }}>
-            Popular Products
-          </h2>
+      <section className="trust-strip" aria-label="Vitalis quality commitments">
+        <div className="trust-track">
+          {[0, 1].map((group) => <div className="trust-group" key={group} aria-hidden={group === 1 ? "true" : undefined}>
+            <p><b>Third-party</b> tested</p>
+            <p><b>Batch-level</b> documentation</p>
+            <p><b>Canadian</b> support</p>
+            <p><b>Discreet</b> fulfilment</p>
+            <p><b>COA-backed</b> quality</p>
+          </div>)}
+        </div>
+      </section>
+      <ProductExplorer />
 
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-            gap: 24,
-          }}>
-            {popularProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-
-          <div style={{ textAlign: "center", marginTop: 40 }}>
-            <Link href="/collections/all-peptides" className="btn-primary" style={{
-              background: "#6d9fab",
-              color: "white",
-              padding: "14px 32px",
-              borderRadius: 4,
-              textDecoration: "none",
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 600,
-              fontSize: 14,
-              display: "inline-block",
-            }}>
-              Browse Full Catalogue
-            </Link>
-          </div>
+      <section className="categories section" id="categories">
+        <div className="section-kicker"><span>Explore by focus</span><span>Four research areas</span></div>
+        <div className="category-intro"><h2>Built for curious<br />minds, not clutter.</h2><p>Find the right research materials by focus, with consistent documentation across every category.</p></div>
+        <div className="category-grid">
+          {categories.map((category, index) => (
+            <a className={`category-card category-${index + 1}`} href="#catalogue" key={category.title}>
+              <span className="category-number">{category.number}</span>
+              <div className="research-glyph"><ResearchGlyph kind={category.kind} /></div>
+              <div><h3>{category.title}</h3><p>{category.copy}</p></div><ArrowUpRight />
+            </a>
+          ))}
         </div>
       </section>
 
-      {/* Explore by category */}
-      <section style={{ padding: "0 24px 64px" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <h3 style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontWeight: 400,
-            fontSize: 32,
-            textAlign: "center",
-            marginBottom: 40,
-            color: "#061406",
-            letterSpacing: "-0.96px",
-          }}>
-            Explore by category
-          </h3>
-
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 20,
-          }}>
-            {categoryCards.map((cat) => (
-              <Link
-                key={cat.slug}
-                href={`/collections/${cat.slug}`}
-                style={{ textDecoration: "none", display: "block" }}
-              >
-                <div style={{ cursor: "pointer" }}>
-                  <div style={{
-                    borderRadius: 20,
-                    overflow: "hidden",
-                    position: "relative",
-                    aspectRatio: "1/1",
-                    marginBottom: 12,
-                  }}>
-                    <Image
-                      src={cat.image}
-                      alt={cat.name}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      unoptimized
-                    />
-                  </div>
-                  <p style={{
-                    fontFamily: "'Prompt', sans-serif",
-                    fontWeight: 400,
-                    fontSize: 18,
-                    color: "#000",
-                    margin: "0 0 10px",
-                  }}>
-                    {cat.name}
-                  </p>
-                  <span style={{
-                    display: "inline-block",
-                    fontSize: 16,
-                    fontWeight: 400,
-                    color: "white",
-                    background: "rgb(109, 159, 171)",
-                    padding: "8px 24px",
-                    borderRadius: 5,
-                    fontFamily: "'DM Sans', sans-serif",
-                  }}>
-                    View All
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+      <section className="collections section">
+        <div className="section-kicker"><span>Collections</span><span>Browse by format</span></div>
+        <div className="collection-grid">
+          <Link href="/shop" className="collection-card blend-collection"><span>01</span><div><small>Paired research</small><h3>Blended<br />Compounds</h3></div><ArrowUpRight /></Link>
+          <Link href="/shop" className="collection-card full-collection"><span>02</span><div><small>Complete index</small><h3>Full Peptide<br />Collection</h3></div><ArrowUpRight /></Link>
+          <Link href="/shop" className="collection-card popular-collection"><span>03</span><div><small>Frequently requested</small><h3>Popular<br />Materials</h3></div><ArrowUpRight /></Link>
+          <Link href="/resources" className="collection-card supply-collection"><span>04</span><div><small>Laboratory handling</small><h3>Research<br />Supplies</h3></div><ArrowUpRight /></Link>
         </div>
       </section>
 
-      {/* Collections */}
-      <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <h3 style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontWeight: 400,
-            fontSize: 32,
-            textAlign: "center",
-            marginBottom: 40,
-            color: "#000",
-            letterSpacing: "-0.96px",
-          }}>
-            Collections
-          </h3>
-
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 20,
-          }}>
-            {collectionCards.map((col) => (
-              <Link
-                key={col.slug}
-                href={`/collections/${col.slug}`}
-                style={{ textDecoration: "none", display: "block" }}
-              >
-                <div style={{ cursor: "pointer" }}>
-                  <div style={{
-                    borderRadius: 20,
-                    overflow: "hidden",
-                    position: "relative",
-                    aspectRatio: "1/1",
-                    marginBottom: 12,
-                  }}>
-                    <Image
-                      src={col.image}
-                      alt={col.name}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      unoptimized
-                    />
-                  </div>
-                  <p style={{
-                    fontFamily: "'Prompt', sans-serif",
-                    fontWeight: 400,
-                    fontSize: 18,
-                    color: "#000",
-                    margin: "0 0 10px",
-                  }}>
-                    {col.name}
-                  </p>
-                  <span style={{
-                    display: "inline-block",
-                    fontSize: 16,
-                    fontWeight: 400,
-                    color: "white",
-                    background: "rgb(109, 159, 171)",
-                    padding: "8px 24px",
-                    borderRadius: 5,
-                    fontFamily: "'DM Sans', sans-serif",
-                  }}>
-                    View All
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+      <section className="quality section" id="quality">
+        <div className="quality-copy"><p className="eyebrow">The Vitalis standard</p><h2>Proof belongs<br />with the product.</h2><p>Every listed compound is paired with batch-level documentation. No scavenger hunts, no vague assurances—just the information your research deserves.</p><a className="button button-dark" href="#catalogue">Browse certificates <ArrowUpRight /></a></div>
+        <div className="quality-card">
+          <div className="document-top"><span>VITALIS / COA</span><span>CA—26—0418</span></div>
+          <div className="document-title"><MapleMark size={38} /><div><span>Certificate of analysis</span><strong>Batch verification</strong></div></div>
+          <div className="document-grid"><div><small>Identity</small><strong>Confirmed</strong></div><div><small>Purity</small><strong>99.4%</strong></div><div><small>Method</small><strong>HPLC / MS</strong></div><div><small>Status</small><strong className="verified"><CheckIcon size={16} /> Verified</strong></div></div>
+          <div className="chromatogram" aria-hidden="true"><svg viewBox="0 0 520 130" preserveAspectRatio="none"><path d="M0 112h65l12-3 10-78 13 81h57l7-12 7 12h56l9-25 11 25h62l6-6 8 6h187" fill="none" stroke="currentColor" strokeWidth="2" /></svg></div>
+          <div className="document-foot"><span>Third-party laboratory</span><span>VIEW ORIGINAL ↗</span></div>
         </div>
       </section>
 
-      {/* COA Banner */}
-      <section style={{
-        background: "#1f2937",
-        padding: "80px 24px",
-        textAlign: "center",
-        color: "white",
-        position: "relative",
-        overflow: "hidden",
-      }}>
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 0,
-          }}
-        >
-          <source src="https://yourhealthsupply.ca/cdn/shop/videos/c/vp/84f656fbbe7d4022b357d268b363d0e4/84f656fbbe7d4022b357d268b363d0e4.HD-720p-2.1Mbps-91519724.mp4?v=0" type="video/mp4" />
-        </video>
-        <div style={{
-          position: "absolute",
-          top: 0, left: 0, right: 0, bottom: 0,
-          background: "rgba(0, 0, 0, 0.45)",
-          zIndex: 1,
-        }} />
-        <div style={{ position: "relative", zIndex: 2 }}>
-          <h2 style={{
-            fontFamily: "'Prompt', sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(32px, 5vw, 56px)",
-            marginBottom: 24,
-          }}>
-            Certificates of Assurance (COA&apos;s) with Every Peptide
-          </h2>
-          <Link
-            href="/collections/all-peptides"
-            style={{
-              background: "#6d9fab",
-              color: "white",
-              padding: "14px 36px",
-              borderRadius: 4,
-              textDecoration: "none",
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 600,
-              fontSize: 14,
-              display: "inline-block",
-            }}
-          >
-            View Peptide Catalogue
-          </Link>
+      <section className="comparison section" id="about">
+        <div className="comparison-heading"><p className="eyebrow dark">Why Vitalis</p><h2>Clarity is a<br />competitive edge.</h2><p>See how a documentation-first Canadian standard compares with the typical research-materials experience.</p></div>
+        <div className="comparison-table">
+          <div className="table-head"><span>What matters</span><span>Most suppliers</span><strong>Vitalis</strong></div>
+          {comparisonRows.map((row) => <div className="table-row" key={row[0]}><span>{row[0]}</span><span>{typeof row[1] === "boolean" ? <i className="compare-no">×</i> : row[1]}</span><strong>{typeof row[2] === "boolean" ? <i className="compare-yes"><CheckIcon size={17} /></i> : row[2]}</strong></div>)}
         </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section style={{ padding: "80px 24px" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <ComparisonTable />
-        </div>
-      </section>
-    </>
+      <section className="final-cta section"><div><p className="eyebrow">For research use only</p><h2>Ready to research?</h2><p className="cta-copy">Explore independently tested research compounds with batch-level transparency.</p><Link className="button button-light" href="/shop">Explore materials <ArrowUpRight /></Link></div><Image src="/images/vitalis-blank-vial.png" alt="Blank Vitalis vial" width={1024} height={1536} className="cta-vial" /></section>
+
+    </main>
   );
 }
