@@ -806,3 +806,11 @@ footer { padding-inline: max(32px, calc((100vw - 1320px) / 2)); }
 @media(prefers-reduced-motion:reduce){
   .trust-track { animation: trustTicker 24s linear infinite; }
 }
+
+/* Keep the catalogue-to-collections transition compact. */
+#catalogue.products { padding-bottom: 42px; }
+.collections { padding-top: 48px; }
+@media(max-width:650px){
+  #catalogue.products { padding-bottom: 34px; }
+  .collections { padding-top: 44px; }
+}

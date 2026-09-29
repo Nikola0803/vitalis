@@ -59,8 +59,6 @@ export default function Home() {
           </div>)}
         </div>
       </section>
-      <ProductExplorer />
-
       <section className="categories section" id="categories">
         <div className="section-kicker"><span>Explore by focus</span><span>Four research areas</span></div>
         <div className="category-intro"><h2>Built for curious<br />minds, not clutter.</h2><p>Find the right research materials by focus, with consistent documentation across every category.</p></div>
@@ -74,6 +72,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <ProductExplorer />
 
       <section className="collections section">
         <div className="section-kicker"><span>Collections</span><span>Browse by format</span></div>
