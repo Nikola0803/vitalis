@@ -134,7 +134,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="final-cta section"><div><p className="eyebrow">For research use only</p><h2>Ready to research?</h2><p className="cta-copy">Explore independently tested research compounds with batch-level transparency.</p><Link className="button button-light" href="/shop">Explore materials <ArrowUpRight /></Link></div><Image src="/images/products/retatrutide.png" alt="Retatrutide Vitalis vial and carton" width={1254} height={1254} className="cta-vial" /></section>
+      <section className="final-cta section">
+        <Image
+          src="/images/home/research-cta-lab.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="final-cta-bg"
+        />
+        <div>
+          <p className="eyebrow">For research use only</p>
+          <h2>Ready to research?</h2>
+          <p className="cta-copy">Explore independently tested research compounds with batch-level transparency.</p>
+          <Link className="button button-light" href="/shop">Explore materials <ArrowUpRight /></Link>
+        </div>
+      </section>
 
       <section className="home-faq section" id="faq">
         <div className="faq-heading"><p className="eyebrow dark">Clear answers</p><h2>Before you continue.</h2><p>Practical information about documentation, intended use, and the Vitalis research standard.</p></div>
