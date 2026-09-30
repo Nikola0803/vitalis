@@ -4,20 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowUpRight, SearchIcon } from "./Icons";
+import { catalogue } from "@/lib/catalog";
 
-const products = [
-  { slug: "bpc-157", name: "BPC-157", size: "5 mg / 10 mg", tag: "Repair", price: "$49.99" },
-  { slug: "glp-3", name: "GLP-3", size: "10 mg / 20 mg", tag: "Metabolic", price: "$69.99" },
-  { slug: "tb-500", name: "TB-500", size: "5 mg / 10 mg", tag: "Recovery", price: "$99.99" },
-  { slug: "mots-c", name: "MOTS-C", size: "10 mg / 40 mg", tag: "Cellular", price: "$59.99" },
-  { slug: "ghk-cu", name: "GHK-Cu", size: "50 mg / 100 mg", tag: "Longevity", price: "$49.99" },
-  { slug: "cjc-ipa", name: "CJC + IPA", size: "10 mg", tag: "Blend", price: "$89.99" },
-];
+const popularSlugs = ["retatrutide", "bpc-157", "tb-500", "mots-c", "ghk-cu", "cjc-1295-ipamorelin"];
+const products = popularSlugs.map((slug) => catalogue.find((item) => item.slug === slug)).filter((item) => item !== undefined);
 
 export default function ProductExplorer() {
   const [query, setQuery] = useState("");
   const filtered = useMemo(
-    () => products.filter((item) => `${item.name} ${item.tag}`.toLowerCase().includes(query.toLowerCase())),
+    () => products.filter((item) => `${item.name} ${item.focus}`.toLowerCase().includes(query.toLowerCase())),
     [query],
   );
 
@@ -42,13 +37,13 @@ export default function ProductExplorer() {
         {filtered.map((product, index) => (
           <Link className="product-card" href={`/shop/${product.slug}`} key={product.name} style={{ "--i": index } as React.CSSProperties} aria-label={`View ${product.name}`}>
             <div className="product-image-wrap">
-              <span className="product-tag">{product.tag}</span>
+              <span className="product-tag">{product.focus}</span>
               <Image src="/images/vitalis-blank-vial.png" alt="Blank Vitalis specimen vial" width={1024} height={1536} className="product-vial" />
-              <span className="batch-dot"><span /> COA ready</span>
+              <span className="batch-dot"><span /> {product.coa ? "COA ready" : "Documentation pending"}</span>
             </div>
             <div className="product-info">
               <div><h3>{product.name}</h3><p>{product.size}</p></div>
-              <div className="price-row"><span>{product.price} <small>CAD</small></span><i><ArrowUpRight size={17} /></i></div>
+              <div className="price-row"><span>${product.price.toFixed(2)} <small>CAD</small></span><i><ArrowUpRight size={17} /></i></div>
             </div>
           </Link>
         ))}

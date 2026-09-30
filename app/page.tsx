@@ -29,6 +29,27 @@ const tickerItems = [
   { image: "/images/ticker/coa-quality.png", title: "COA-backed", copy: "quality" },
 ];
 
+const evidenceCards = [
+  ["01", "Batch-connected records", "Every report is organized around the lot code carried with the research material."],
+  ["02", "Independent verification", "Identity and purity documentation stays accessible instead of disappearing after checkout."],
+  ["03", "Consistent handling", "One clear research-use standard follows the material from catalogue to receipt."],
+  ["04", "Canadian support", "Questions about orders, records, and fulfilment stay with one domestic support path."],
+];
+
+const operatingSteps = [
+  ["01", "Source", "Qualify the material and document its receiving record."],
+  ["02", "Verify", "Connect independent analytical results to the batch."],
+  ["03", "Document", "Keep the lot identity visible across the product record."],
+  ["04", "Fulfil", "Dispatch with Canadian support and traceable documentation."],
+];
+
+const faqs = [
+  ["Are Vitalis materials intended for human use?", "No. Vitalis materials are presented strictly for laboratory and analytical research, not for human or veterinary use."],
+  ["How do I find the report for my batch?", "Use the lot code on the specimen packaging in the COA library search. Matching documentation is organized by that identifier."],
+  ["What does third-party tested mean?", "The analytical record is produced independently from the product listing and tied back to the reported lot."],
+  ["Where does Vitalis provide support?", "Vitalis is designed around Canadian ordering, fulfilment, documentation, and customer support."],
+];
+
 export default function Home() {
   return (
     <main>
@@ -86,7 +107,7 @@ export default function Home() {
       </section>
 
       <section className="quality section" id="quality">
-        <div className="quality-copy"><p className="eyebrow">The Vitalis standard</p><h2>Proof belongs<br />with the product.</h2><p>Every listed compound is paired with batch-level documentation. No scavenger hunts, no vague assurances—just the information your research deserves.</p><a className="button button-dark" href="#catalogue">Browse certificates <ArrowUpRight /></a></div>
+        <div className="quality-copy"><p className="eyebrow">The Vitalis standard</p><h2>Proof belongs<br />with the product.</h2><p>Every listed compound is paired with batch-level documentation. No scavenger hunts, no vague assurances—just the information your research deserves.</p><Link className="button button-dark" href="/coas">Browse certificates <ArrowUpRight /></Link></div>
         <div className="quality-card">
           <div className="document-top"><span>VITALIS / COA</span><span>CA—26—0418</span></div>
           <div className="document-title"><MapleMark size={38} /><div><span>Certificate of analysis</span><strong>Batch verification</strong></div></div>
@@ -96,12 +117,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="evidence section" id="evidence">
+        <div className="evidence-heading"><p className="eyebrow dark">Driven by documentation</p><h2>Trusted research starts with a record.</h2><p>Quality is easier to evaluate when every checkpoint is visible, repeatable, and connected to the batch in front of you.</p></div>
+        <div className="evidence-grid">{evidenceCards.map(([no,title,copy]) => <article key={no}><span>{no}</span><h3>{title}</h3><p>{copy}</p><CheckIcon size={18} /></article>)}</div>
+      </section>
+
+      <section className="operating-flow" id="process">
+        <div className="operating-flow-head"><div><p>Precision at every step</p><h2>One standard from source to record.</h2></div><p>The process is designed to keep product identity, testing, documentation, and fulfilment connected—not scattered across separate systems.</p></div>
+        <div className="operating-flow-grid">{operatingSteps.map(([no,title,copy]) => <article key={no}><span>{no}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+      </section>
+
       <section className="comparison section" id="about">
         <div className="comparison-heading"><p className="eyebrow dark">Why Vitalis</p><h2>Clarity is a<br />competitive edge.</h2><p>See how a documentation-first Canadian standard compares with the typical research-materials experience.</p></div>
         <div className="comparison-table">
           <div className="table-head"><span>What matters</span><span>Most suppliers</span><strong>Vitalis</strong></div>
           {comparisonRows.map((row) => <div className="table-row" key={row[0]}><span>{row[0]}</span><span>{typeof row[1] === "boolean" ? <i className="compare-no">×</i> : row[1]}</span><strong>{typeof row[2] === "boolean" ? <i className="compare-yes"><CheckIcon size={17} /></i> : row[2]}</strong></div>)}
         </div>
+      </section>
+
+      <section className="home-faq section" id="faq">
+        <div><p className="eyebrow dark">Clear answers</p><h2>Want to learn more?</h2><p>Practical information about documentation, intended use, and the Vitalis research standard.</p></div>
+        <div className="faq-list">{faqs.map(([question,answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="final-cta section"><div><p className="eyebrow">For research use only</p><h2>Ready to research?</h2><p className="cta-copy">Explore independently tested research compounds with batch-level transparency.</p><Link className="button button-light" href="/shop">Explore materials <ArrowUpRight /></Link></div><Image src="/images/vitalis-blank-vial.png" alt="Blank Vitalis vial" width={1024} height={1536} className="cta-vial" /></section>
