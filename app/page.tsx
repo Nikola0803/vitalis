@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import ProductExplorer from "@/components/ProductExplorer";
-import { ArrowUpRight, CheckIcon, MapleMark, ResearchGlyph } from "@/components/Icons";
+import { ArrowUpRight, CheckIcon, MapleMark } from "@/components/Icons";
 
 const categories = [
-  { number: "01", title: "Cellular & Anti-Aging", copy: "Research materials organized around cellular pathways.", kind: "cellular" as const },
-  { number: "02", title: "Tissue Repair", copy: "Compounds studied across repair and resilience protocols.", kind: "tissue" as const },
-  { number: "03", title: "Neuro Health", copy: "A focused collection for neurological research.", kind: "neuro" as const },
-  { number: "04", title: "Metabolic Health", copy: "Materials organized around metabolic research.", kind: "metabolic" as const },
+  { title: "Cellular & Anti-Aging", copy: "Cellular research", href: "/shop?focus=Cellular", image: "/images/products/ghk-cu.png" },
+  { title: "Tissue Repair", copy: "Repair and resilience", href: "/shop?focus=Recovery", image: "/images/products/bpc-157.png" },
+  { title: "Neuro Health", copy: "Neurological research", href: "/shop?focus=Neuro", image: "/images/products/semax.png" },
+  { title: "Metabolic Health", copy: "Metabolic research", href: "/shop?focus=Metabolic", image: "/images/products/retatrutide.png" },
 ];
 
 const comparisonRows = [
@@ -84,12 +84,11 @@ export default function Home() {
         <div className="section-kicker"><span>Explore by focus</span><span>Four research areas</span></div>
         <div className="category-intro"><h2>Built for curious<br />minds, not clutter.</h2><p>Find the right research materials by focus, with consistent documentation across every category.</p></div>
         <div className="category-grid">
-          {categories.map((category, index) => (
-            <a className={`category-card category-${index + 1}`} href="#catalogue" key={category.title}>
-              <span className="category-number">{category.number}</span>
-              <div className="research-glyph"><ResearchGlyph kind={category.kind} /></div>
-              <div><h3>{category.title}</h3><p>{category.copy}</p></div><ArrowUpRight />
-            </a>
+          {categories.map((category) => (
+            <Link className="category-card" href={category.href} key={category.title}>
+              <Image src={category.image} alt="" width={1254} height={1254} />
+              <div><h3>{category.title}</h3><p>{category.copy}</p></div>
+            </Link>
           ))}
         </div>
       </section>

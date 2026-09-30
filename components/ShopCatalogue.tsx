@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, SearchIcon } from "./Icons";
 import { catalogue } from "@/lib/catalog";
 
@@ -10,7 +10,16 @@ const focuses = ["All", "Recovery", "Metabolic", "Cellular", "Longevity", "Neuro
 
 export default function ShopCatalogue() {
   const [focus, setFocus] = useState("All");
-  const [query, setQuery] = useState(() => typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("q") ?? "");
+  const [query, setQuery] = useState("");
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const params = new URLSearchParams(window.location.search);
+      const requested = params.get("focus");
+      if (requested && focuses.includes(requested)) setFocus(requested);
+      setQuery(params.get("q") ?? "");
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
   const filtered = useMemo(() => catalogue.filter((item) => {
     const searchText = `${item.name} ${item.focus} ${item.summary} ${item.variants.map((variant) => variant.sku).join(" ")}`.toLowerCase();
     return (focus === "All" || item.focus === focus) && searchText.includes(query.toLowerCase());
