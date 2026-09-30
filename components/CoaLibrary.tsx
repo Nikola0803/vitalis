@@ -42,6 +42,13 @@ export default function CoaLibrary() {
   }, [activeLot]);
 
   return <main className="coa-library-page">
+    <section className="page-hero coa-library-hero">
+      <div>
+        <p className="eyebrow">Independent verification</p>
+        <h1>Trace every vial<br />back to the evidence.</h1>
+        <p>Search batch-specific analytical reports, review test methods, and connect each material to its documented lot.</p>
+      </div>
+    </section>
     <section className="coa-library-shell">
       <div className="coa-control-panel">
         <label className="coa-library-search">
@@ -55,7 +62,7 @@ export default function CoaLibrary() {
       </div>
 
       <div className="coa-library-heading">
-        <div><p>Document library</p><h1>Published lot reports</h1></div>
+        <div><p>Document library</p><h2>Published lot reports</h2></div>
         <span>{filtered.length} {filtered.length === 1 ? "report" : "reports"}</span>
       </div>
 

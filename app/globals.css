@@ -1400,3 +1400,56 @@ body.modal-open { overflow: hidden; }
   .calculator-hero::after{background:linear-gradient(90deg,rgba(43,103,90,.98) 0%,rgba(55,119,105,.91) 60%,rgba(73,141,126,.58) 100%)!important}
   .calculator-hero-copy{max-width:100%}
 }
+
+/* Resources hero photography: documented lab work with Vitalis materials in view. */
+.resources-hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background-color:#498d7e!important;
+  background-image:url('/images/resources/resources-documentation-hero.png')!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:center!important;
+}
+.resources-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(43,103,90,.98) 0%,rgba(58,124,109,.94) 36%,rgba(73,141,126,.64) 53%,rgba(73,141,126,.14) 76%,rgba(73,141,126,.03) 100%)!important;
+}
+.resources-hero>div{position:relative;z-index:2}
+.resources-hero .resource-index-visual{background:rgba(245,249,247,.9);border-color:rgba(255,255,255,.48);box-shadow:0 24px 60px rgba(22,66,59,.16);backdrop-filter:blur(12px)}
+
+@media(max-width:650px){
+  .resources-hero{background-size:auto 100%!important;background-position:70% center!important}
+  .resources-hero::after{background:linear-gradient(90deg,rgba(43,103,90,.98) 0%,rgba(55,119,105,.92) 59%,rgba(73,141,126,.62) 100%)!important}
+}
+
+/* COA hero: analytical verification, separated visually from the report library. */
+.coa-library-hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background-color:#245f57!important;
+  background-image:url('/images/coas/coa-verification-hero.png')!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:center!important;
+}
+.coa-library-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(20,78,72,.99) 0%,rgba(31,101,91,.94) 35%,rgba(57,126,112,.57) 52%,rgba(73,141,126,.08) 75%,rgba(73,141,126,0) 100%)!important;
+}
+.coa-library-hero>div{position:relative;z-index:2;max-width:600px}
+.coa-library-shell{padding-top:72px}
+
+@media(max-width:650px){
+  .coa-library-hero{background-size:auto 100%!important;background-position:72% center!important}
+  .coa-library-hero::after{background:linear-gradient(90deg,rgba(20,78,72,.99) 0%,rgba(39,108,97,.93) 61%,rgba(73,141,126,.55) 100%)!important}
+  .coa-library-shell{padding-top:48px}
+}
