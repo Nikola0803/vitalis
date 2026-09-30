@@ -78,12 +78,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
     <section className="pdp-research-band">
       <div className="pdp-research-copy"><p>Research profile</p><h2>Researched for…</h2><span>{product.name} is used in preclinical and experimental settings investigating:</span><ul>{research.map((item) => <li key={item}><CheckIcon size={15}/>{item}</li>)}</ul><small>Research applications focus on mechanistic exploration and biological pathway analysis, not therapeutic use.</small></div>
-      <div className="pdp-research-visual" aria-label={`${product.name} research pathway profile`}>
-        <div className="research-map">
-          <div className="research-map-head"><span>VITALIS / RESEARCH MAP</span><b>{product.focus.toUpperCase()}</b></div>
-          <div className="research-map-core"><FlaskIcon/><small>COMPOUND</small><strong>{product.name}</strong></div>
-          <div className="research-map-nodes">{research.map((item, index) => <div key={item}><i>0{index + 1}</i><span>{item}</span></div>)}</div>
-          <div className="research-map-foot"><span>PRECLINICAL</span><span>MECHANISTIC</span><span>LABORATORY</span></div>
+      <div className="pdp-research-visual" aria-label={`${product.name} Vitalis product presentation`}>
+        <div className="research-product-frame">
+          <div className="research-product-meta"><span>VITALIS / SPECIMEN</span><b>{product.focus.toUpperCase()}</b></div>
+          <Image src={product.image} alt={`${product.name} Vitalis vial and carton`} width={1254} height={1254}/>
+          <div className="research-product-foot"><span>PRODUCT PRESENTATION</span><span>{sizes[0].toUpperCase()}</span></div>
         </div>
       </div>
     </section>

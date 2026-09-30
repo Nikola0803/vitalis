@@ -552,6 +552,29 @@ footer { padding-inline: max(32px, calc((100vw - 1320px) / 2)); }
   .about-values { padding-inline: 24px; gap: 30px; }
 }
 
+/* Product photography stays fully visible: contained, padded, and never cropped. */
+.coa-report-card{grid-template-columns:210px 1fr;min-height:260px}
+.coa-report-image{padding:28px 18px 18px;display:grid;place-items:center;background:linear-gradient(145deg,#edf4f1,#f8faf8)}
+.coa-report-image>img{width:100%;height:215px;object-fit:contain;object-position:center;filter:drop-shadow(0 13px 13px rgba(20,68,60,.14));transform:none}
+.coa-report-card:hover .coa-report-image>img{transform:scale(1.025)}
+.coa-report-image>span{left:12px;top:12px}
+.pdp-research-visual{min-height:470px;padding:24px;display:grid;place-items:center}
+.research-product-frame{width:min(410px,100%);aspect-ratio:1/1;padding:19px;display:grid;grid-template-rows:auto 1fr auto;position:relative;border:1px solid rgba(73,141,126,.2);border-radius:18px;background:radial-gradient(circle at 50% 46%,rgba(99,166,147,.18),transparent 43%),#f9fbf9;box-shadow:0 24px 55px rgba(20,76,66,.1);overflow:hidden}
+.research-product-frame::before{content:"";position:absolute;width:290px;height:290px;left:50%;top:50%;border:1px solid rgba(73,141,126,.14);border-radius:50%;transform:translate(-50%,-50%)}
+.research-product-meta,.research-product-foot{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;color:#76857f;font-size:7px;font-weight:800;letter-spacing:.13em}.research-product-meta b{color:var(--teal)}
+.research-product-frame>img{width:100%;height:330px;position:relative;z-index:1;object-fit:contain;object-position:center;filter:drop-shadow(0 20px 16px rgba(20,68,60,.16))}
+.research-product-foot{padding-top:12px;border-top:1px solid rgba(73,141,126,.16)}
+
+@media(max-width:650px){
+  .coa-report-card{grid-template-columns:112px 1fr;min-height:190px}
+  .coa-report-image{padding:25px 8px 10px}
+  .coa-report-image>img{height:158px}
+  .pdp-research-visual{min-height:360px;padding:0}
+  .research-product-frame{width:min(330px,100%);padding:14px;border-radius:14px}
+  .research-product-frame>img{height:270px}
+  .research-product-frame::before{width:230px;height:230px}
+}
+
 /* Original Vitalis calculator, finished in the shared EVLV/Vitalis system. */
 .calculator-page { padding-bottom: 90px; }
 .calculator-intro, .calculator-original-wrap, .calc-tips, .calculator-disclaimer { width: min(960px, calc(100% - 64px)); margin-inline: auto; }
@@ -1321,4 +1344,23 @@ body.modal-open { overflow: hidden; }
   .final-cta>div{width:100%}
   .final-cta h2{font-size:52px}
   .final-cta .cta-copy{max-width:440px;margin:20px 0 26px;font-size:13px}
+}
+
+/* Final product-photo framing overrides: preserve the complete vial and carton. */
+.coa-report-card{grid-template-columns:210px 1fr;min-height:260px}
+.coa-report-image{padding:30px 16px 16px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#edf4f1,#f8faf8)}
+.coa-report-image>img{width:100%!important;height:215px!important;object-fit:contain!important;object-position:center!important;filter:drop-shadow(0 13px 13px rgba(20,68,60,.14))!important;transform:none}
+.coa-report-card:hover .coa-report-image>img{transform:scale(1.025)}
+.pdp-research-visual{min-height:470px;padding:24px;display:grid;place-items:center}
+.pdp-research-visual::before{display:none}
+.research-product-frame{width:min(410px,100%);aspect-ratio:1/1;padding:19px;display:grid;grid-template-rows:auto 1fr auto;position:relative;border:1px solid rgba(73,141,126,.2);border-radius:18px;background:radial-gradient(circle at 50% 46%,rgba(99,166,147,.18),transparent 43%),#f9fbf9;box-shadow:0 24px 55px rgba(20,76,66,.1);overflow:hidden}
+.research-product-frame>img{width:100%!important;height:330px!important;position:relative;z-index:1;object-fit:contain!important;object-position:center!important;filter:drop-shadow(0 20px 16px rgba(20,68,60,.16))!important}
+
+@media(max-width:650px){
+  .coa-report-card{grid-template-columns:112px 1fr;min-height:190px}
+  .coa-report-image{padding:25px 8px 10px}
+  .coa-report-image>img{height:158px!important}
+  .pdp-research-visual{min-height:360px;padding:0}
+  .research-product-frame{width:min(330px,100%);padding:14px;border-radius:14px}
+  .research-product-frame>img{height:270px!important}
 }
