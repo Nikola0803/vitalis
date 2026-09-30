@@ -64,7 +64,7 @@ export default function CoaLibrary() {
           <button className="coa-card-trigger" type="button" aria-label={`Open lab report for ${report.product}, lot ${report.lot}`} onClick={() => setActiveLot(report.lot)} />
           <div className="coa-report-image">
             <Image src={report.image} alt={`${report.product} Vitalis vial and carton`} width={1254} height={1254} />
-            <span>Report on file</span>
+            <span>{report.externalUrl ? "Testides verified" : "Report on file"}</span>
           </div>
           <div className="coa-report-copy">
             <div className="coa-report-title"><div><p>{report.product}</p><h2>{report.product} {report.size.split(" / ")[0]}</h2></div><ArrowUpRight size={18} /></div>
@@ -85,8 +85,10 @@ export default function CoaLibrary() {
         <div className="coa-document-top"><span>VITALIS / CERTIFICATE OF ANALYSIS</span><span>{activeReport.lot}</span></div>
         <div className="coa-document-title"><div><small>Independent analytical report</small><h2 id="coa-modal-title">{activeReport.product} {activeReport.size.split(" / ")[0]}</h2></div><strong><CheckIcon size={15} /> Verified</strong></div>
         <div className="coa-document-meta"><div><small>Lot / report</small><b>{activeReport.lot}</b></div><div><small>Purity</small><b>{activeReport.purity}</b></div><div><small>Method</small><b>{activeReport.method}</b></div><div><small>Analyzed</small><b>{activeReport.date}</b></div></div>
-        <iframe className="coa-pdf-frame" src={activeReport.url} title={`${activeReport.product} laboratory report`} />
-        <div className="coa-document-foot"><span>Independent third-party laboratory</span><span>For research documentation</span></div>
+        {activeReport.localPreview
+          ? <iframe className="coa-pdf-frame" src={activeReport.url} title={`${activeReport.product} laboratory report`} />
+          : <div className="coa-external-report"><CheckIcon size={30}/><h3>Verified Testides record</h3><p>This product is connected to its report-specific third-party verification page.</p><a href={activeReport.externalUrl} target="_blank" rel="noreferrer">Visit certificate at Testides <ArrowUpRight size={15}/></a></div>}
+        <div className="coa-document-foot"><span>Independent third-party laboratory</span>{activeReport.externalUrl ? <a href={activeReport.externalUrl} target="_blank" rel="noreferrer">Verify at Testides ↗</a> : <span>For research documentation</span>}</div>
       </section>
     </div>}
   </main>;

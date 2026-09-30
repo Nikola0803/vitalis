@@ -1182,6 +1182,7 @@ body.modal-open { overflow: hidden; }
   .faq-list summary { min-height: 66px; font-size: 13px; }
 }
 .coa-pdf-frame{width:100%;height:min(68vh,760px);border:1px solid rgba(20,70,60,.14);background:#fff}
+.coa-external-report{min-height:310px;margin:22px 0 18px;padding:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #dce5df;background:#f3f7f4;text-align:center}.coa-external-report>svg{color:var(--teal)}.coa-external-report h3{margin:18px 0 8px;font:400 30px/1 Georgia,serif}.coa-external-report p{max-width:440px;margin:0;color:#74827d;font-size:11px;line-height:1.6}.coa-external-report a{margin-top:24px;padding:14px 18px;display:inline-flex;align-items:center;gap:22px;background:var(--teal);color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.coa-document-foot a{color:var(--teal);font-weight:800}
 
 /* EVLV-derived compact premium footer, adapted to the Vitalis system. */
 .site-footer{display:block;padding:58px 0 20px;background:#123c37;color:#fff}
