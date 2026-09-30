@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, CheckIcon, SearchIcon } from "./Icons";
 import { catalogue, coaRows } from "@/lib/catalog";
@@ -63,8 +62,13 @@ export default function CoaLibrary() {
         {filtered.map((report) => <article className="coa-report-card" key={report.lot}>
           <button className="coa-card-trigger" type="button" aria-label={`Open lab report for ${report.product}, lot ${report.lot}`} onClick={() => setActiveLot(report.lot)} />
           <div className="coa-report-image">
-            <Image src={report.image} alt={`${report.product} Vitalis vial and carton`} width={1254} height={1254} />
             <span>{report.externalUrl ? "Testides verified" : "Report on file"}</span>
+            <div className="coa-paper" aria-hidden="true">
+              <small>VITALIS / COA</small>
+              <b>{report.report}</b>
+              <svg viewBox="0 0 120 54" preserveAspectRatio="none"><path d="M0 46h18l4-2 5-34 5 36h17l3-7 4 7h19l3-13 4 13h38" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
+              <i><CheckIcon size={13}/> VERIFIED RECORD</i>
+            </div>
           </div>
           <div className="coa-report-copy">
             <div className="coa-report-title"><div><p>{report.product}</p><h2>{report.product} {report.size.split(" / ")[0]}</h2></div><ArrowUpRight size={18} /></div>
