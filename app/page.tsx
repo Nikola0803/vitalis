@@ -4,10 +4,10 @@ import ProductExplorer from "@/components/ProductExplorer";
 import { ArrowUpRight, CheckIcon, MapleMark } from "@/components/Icons";
 
 const categories = [
-  { title: "Cellular & Anti-Aging", copy: "Cellular research", href: "/shop?focus=Cellular", image: "/images/products/ghk-cu.png" },
-  { title: "Tissue Repair", copy: "Repair and resilience", href: "/shop?focus=Recovery", image: "/images/products/bpc-157.png" },
-  { title: "Neuro Health", copy: "Neurological research", href: "/shop?focus=Neuro", image: "/images/products/semax.png" },
-  { title: "Metabolic Health", copy: "Metabolic research", href: "/shop?focus=Metabolic", image: "/images/products/retatrutide.png" },
+  { title: "Cellular & Anti-Aging", copy: "Cellular research", href: "/shop?focus=Cellular", image: "/images/categories/cellular-anti-aging.png" },
+  { title: "Tissue Repair", copy: "Repair and resilience", href: "/shop?focus=Recovery", image: "/images/categories/tissue-repair.png" },
+  { title: "Neuro Health", copy: "Neurological research", href: "/shop?focus=Neuro", image: "/images/categories/neuro-health.png" },
+  { title: "Metabolic Health", copy: "Metabolic research", href: "/shop?focus=Metabolic", image: "/images/categories/metabolic-health.png" },
 ];
 
 const comparisonRows = [
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="category-grid">
           {categories.map((category) => (
             <Link className="category-card" href={category.href} key={category.title}>
-              <Image src={category.image} alt="" width={1254} height={1254} />
+              <Image src={category.image} alt="" width={1674} height={941} />
               <div><h3>{category.title}</h3><p>{category.copy}</p></div>
             </Link>
           ))}
