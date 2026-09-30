@@ -1058,15 +1058,19 @@ body.modal-open { overflow: hidden; }
 .operating-flow-grid span { font: italic 13px Georgia,serif; opacity: .72; }
 .operating-flow-grid h3 { margin: 48px 0 9px; font-size: 20px; }
 .operating-flow-grid p { margin: 0; color: rgba(255,255,255,.68); font-size: 11px; line-height: 1.6; }
-.home-faq { padding-top: 80px; padding-bottom: 110px; display: grid; grid-template-columns: .72fr 1.28fr; gap: 7vw; background: #fff; }
-.home-faq > div:first-child > p:last-child { max-width: 420px; color: #697571; line-height: 1.65; }
-.faq-list { border-top: 1px solid #cfdad4; }
+.home-faq { width: 100%; max-width: none; margin-inline: 0; padding: 96px max(24px,calc((100vw - 1320px)/2)) 112px; display: block; background: #f1f5f2; }
+.faq-heading { max-width: 680px; margin: 0 auto 46px; text-align: center; }
+.faq-heading .eyebrow::before { display: none; }
+.faq-heading h2 { margin-bottom: 14px; font-size: clamp(42px,5vw,62px); letter-spacing: -.05em; }
+.home-faq > div:first-child > p:last-child { max-width: 520px; margin: 0 auto; color: #697571; line-height: 1.65; }
+.faq-list { max-width: 900px; margin: auto; border-top: 1px solid #c6d4cd; }
 .faq-list details { border-bottom: 1px solid #cfdad4; }
-.faq-list summary { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 700; }
+.faq-list summary { min-height: 78px; display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 18px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 700; }
 .faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary i { color: var(--teal); font: italic 11px Georgia,serif; }
 .faq-list summary span { width: 29px; height: 29px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid #cbd8d1; border-radius: 50%; color: var(--teal); font-size: 18px; transition: transform .2s ease, background .2s ease; }
 .faq-list details[open] summary span { transform: rotate(45deg); background: #edf4f0; }
-.faq-list details > p { max-width: 680px; margin: -4px 54px 24px 0; color: #697571; font-size: 13px; line-height: 1.7; }
+.faq-list details > p { max-width: 720px; margin: -3px 54px 26px 56px; color: #697571; font-size: 13px; line-height: 1.7; }
 
 @media(max-width:900px){
   .evidence, .home-faq { grid-template-columns: 1fr; }

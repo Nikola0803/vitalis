@@ -135,12 +135,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-faq section" id="faq">
-        <div><p className="eyebrow dark">Clear answers</p><h2>Want to learn more?</h2><p>Practical information about documentation, intended use, and the Vitalis research standard.</p></div>
-        <div className="faq-list">{faqs.map(([question,answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
-      </section>
-
       <section className="final-cta section"><div><p className="eyebrow">For research use only</p><h2>Ready to research?</h2><p className="cta-copy">Explore independently tested research compounds with batch-level transparency.</p><Link className="button button-light" href="/shop">Explore materials <ArrowUpRight /></Link></div><Image src="/images/vitalis-blank-vial.png" alt="Blank Vitalis vial" width={1024} height={1536} className="cta-vial" /></section>
+
+      <section className="home-faq section" id="faq">
+        <div className="faq-heading"><p className="eyebrow dark">Clear answers</p><h2>Before you continue.</h2><p>Practical information about documentation, intended use, and the Vitalis research standard.</p></div>
+        <div className="faq-list">{faqs.map(([question,answer], index) => <details key={question}><summary><i>0{index + 1}</i>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
+      </section>
 
     </main>
   );
