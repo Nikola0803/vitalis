@@ -64,7 +64,7 @@ export default function Home() {
         <div className="hero-visual" aria-label="Vitalis blank specimen vial">
           <div className="orbit orbit-one" /><div className="orbit orbit-two" />
           <div className="visual-note note-top"><span>01</span> Universal specimen</div>
-          <Image priority src="/images/vitalis-blank-vial.png" alt="Blank specimen vial with teal cap" width={1024} height={1536} className="hero-vial" />
+          <Image priority src="/images/products/bpc-157.png" alt="BPC-157 Vitalis vial and carton" width={1254} height={1254} className="hero-vial" />
           <div className="visual-note note-bottom"><span className="status-light" /> Batch identity verified</div>
           <p className="visual-caption">THE VITALIS STANDARD / 2026</p>
         </div>
@@ -135,7 +135,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="final-cta section"><div><p className="eyebrow">For research use only</p><h2>Ready to research?</h2><p className="cta-copy">Explore independently tested research compounds with batch-level transparency.</p><Link className="button button-light" href="/shop">Explore materials <ArrowUpRight /></Link></div><Image src="/images/vitalis-blank-vial.png" alt="Blank Vitalis vial" width={1024} height={1536} className="cta-vial" /></section>
+      <section className="final-cta section"><div><p className="eyebrow">For research use only</p><h2>Ready to research?</h2><p className="cta-copy">Explore independently tested research compounds with batch-level transparency.</p><Link className="button button-light" href="/shop">Explore materials <ArrowUpRight /></Link></div><Image src="/images/products/retatrutide.png" alt="Retatrutide Vitalis vial and carton" width={1254} height={1254} className="cta-vial" /></section>
 
       <section className="home-faq section" id="faq">
         <div className="faq-heading"><p className="eyebrow dark">Clear answers</p><h2>Before you continue.</h2><p>Practical information about documentation, intended use, and the Vitalis research standard.</p></div>

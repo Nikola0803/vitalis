@@ -23,7 +23,7 @@ export default function CoaLibrary() {
   const reports = useMemo(() => coaRows.map((row) => {
     const product = catalogue.find((item) => item.name === row.product);
     const kind: Filter = product?.focus === "Metabolic" ? "glp" : product?.focus === "Blends" ? "blends" : "peptides";
-    return { ...row, size: product?.size ?? "Research material", kind };
+    return { ...row, size: product?.size ?? "Research material", image: product?.image ?? "/images/products/bpc-157.png", kind };
   }), []);
 
   const filtered = reports.filter((report) => {
@@ -63,7 +63,7 @@ export default function CoaLibrary() {
         {filtered.map((report) => <article className="coa-report-card" key={report.lot}>
           <button className="coa-card-trigger" type="button" aria-label={`Open lab report for ${report.product}, lot ${report.lot}`} onClick={() => setActiveLot(report.lot)} />
           <div className="coa-report-image">
-            <Image src="/images/vitalis-blank-vial.png" alt="Blank Vitalis specimen vial" width={1024} height={1536} />
+            <Image src={report.image} alt={`${report.product} Vitalis vial and carton`} width={1254} height={1254} />
             <span>Report on file</span>
           </div>
           <div className="coa-report-copy">

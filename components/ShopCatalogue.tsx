@@ -24,7 +24,7 @@ export default function ShopCatalogue() {
       <div className="shop-count"><span>{filtered.length} research materials</span><span>Prices shown in CAD</span></div>
       <div className="shop-grid">
         {filtered.map((item) => <Link className="shop-card" href={`/shop/${item.slug}`} key={item.slug} aria-label={`View ${item.name}`}>
-          <div className="shop-card-image"><span className="coa-pill">{item.coa ? "COA available" : item.comingSoon ? "Coming soon" : "Documentation pending"}</span><Image src="/images/vitalis-blank-vial.png" alt="Blank Vitalis specimen vial" width={1024} height={1536} /></div>
+          <div className="shop-card-image"><span className="coa-pill">{item.coa ? "COA available" : item.comingSoon ? "Coming soon" : "Documentation pending"}</span><Image src={item.image} alt={`${item.name} Vitalis vial and carton`} width={1254} height={1254} /></div>
           <div className="purity-bar"><span>{item.coa ? "Verified purity" : "Documentation"}</span><b>{item.purity}</b></div>
           <div className="shop-card-copy"><small>{item.focus}</small><h2>{item.name}</h2><p>{item.size}</p><div><strong>${item.price.toFixed(2)} CAD</strong><span className="shop-card-arrow"><ArrowUpRight size={16} /></span></div></div>
         </Link>)}

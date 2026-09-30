@@ -19,6 +19,7 @@ export type CoaReport = {
 
 export type CatalogProduct = {
   slug: string;
+  image: string;
   name: string;
   focus: ProductFocus;
   summary: string;
@@ -31,7 +32,7 @@ export type CatalogProduct = {
 };
 
 const make = (slug: string, name: string, focus: ProductFocus, summary: string, variants: ProductVariant[], coa?: CoaReport, comingSoon = false): CatalogProduct => ({
-  slug, name, focus, summary, variants, coa, comingSoon,
+  slug, image: `/images/products/${slug}.png`, name, focus, summary, variants, coa, comingSoon,
   size: variants.map((variant) => variant.size).join(" / "),
   price: Math.min(...variants.map((variant) => variant.price)),
   purity: coa?.purity ?? "Pending",

@@ -39,7 +39,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <div className="pdp-gallery">
         <div className="pdp-gallery-meta"><span>VITALIS SPECIMEN</span><span>{product.focus.toUpperCase()} / {sizes[0].toUpperCase()}</span></div>
         <div className="pdp-orbit" />
-        <Image priority src="/images/vitalis-blank-vial.png" alt={`Blank specimen vial representing ${product.name}`} width={1024} height={1536} />
+        <Image priority src={product.image} alt={`${product.name} Vitalis vial and carton`} width={1254} height={1254} />
         <div className="pdp-image-foot"><span><CheckIcon size={14}/> Same universal vial standard</span><span>Image for presentation</span></div>
       </div>
       <div className="pdp-summary">
@@ -75,7 +75,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
     <section className="pdp-research-band">
       <div className="pdp-research-copy"><p>Research profile</p><h2>Researched for…</h2><span>{product.name} is used in preclinical and experimental settings investigating:</span><ul>{research.map((item) => <li key={item}><CheckIcon size={15}/>{item}</li>)}</ul><small>Research applications focus on mechanistic exploration and biological pathway analysis, not therapeutic use.</small></div>
-      <div className="pdp-research-visual" aria-label="Vitalis laboratory presentation"><span className="science-orbit orbit-one"/><span className="science-orbit orbit-two"/><Image src="/images/vitalis-blank-vial.png" alt="Blank Vitalis specimen vial" width={1024} height={1536}/><Image src="/images/vitalis-blank-vial.png" alt="" width={1024} height={1536}/><b>LAB / 01</b></div>
+      <div className="pdp-research-visual" aria-label={`${product.name} laboratory presentation`}><span className="science-orbit orbit-one"/><span className="science-orbit orbit-two"/><Image src={product.image} alt={`${product.name} Vitalis vial and carton`} width={1254} height={1254}/><b>LAB / 01</b></div>
     </section>
 
     <section className="pdp-spec-band">
@@ -91,7 +91,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <div className="pdp-compare-table"><div className="compare-head"><span>What matters</span><span>Typical listing</span><span>Vitalis</span></div>{[["Batch-linked record","Often unclear","Connected by lot"],["Original lab report","May be unavailable",product.coa ? "Available" : "Pending"],["Purity claims","Marketing-led","Report-led"],["Product identification","Inconsistent","SKU + lot record"],["Support path","Varies","Canadian support"]].map((row) => <div className="compare-line" key={row[0]}><b>{row[0]}</b><span>{row[1]}</span><strong><CheckIcon size={14}/>{row[2]}</strong></div>)}</div>
     </section>
 
-    <section className="pdp-related"><div className="inner-heading"><div><small>Continue exploring</small><h2>Complementary products</h2></div><Link href="/shop">View full catalogue <ArrowUpRight size={16}/></Link></div><div className="related-grid">{related.map((item) => <Link href={`/shop/${item.slug}`} key={item.slug}><div><Image src="/images/vitalis-blank-vial.png" alt="" width={1024} height={1536}/></div><small>{item.focus}</small><h3>{item.name}</h3><span>${item.price.toFixed(2)} CAD</span></Link>)}</div></section>
+    <section className="pdp-related"><div className="inner-heading"><div><small>Continue exploring</small><h2>Complementary products</h2></div><Link href="/shop">View full catalogue <ArrowUpRight size={16}/></Link></div><div className="related-grid">{related.map((item) => <Link href={`/shop/${item.slug}`} key={item.slug}><div><Image src={item.image} alt={`${item.name} Vitalis vial and carton`} width={1254} height={1254}/></div><small>{item.focus}</small><h3>{item.name}</h3><span>${item.price.toFixed(2)} CAD</span></Link>)}</div></section>
     <section className="pdp-categories"><div className="inner-heading"><div><small>Explore the catalogue</small><h2>Shop by research focus</h2></div></div><div>{categories.map(([title, label, focus]) => <Link href={`/shop?q=${focus}`} key={title}><span>{label}</span><h3>{title}</h3><ArrowUpRight size={16}/></Link>)}</div></section>
   </main>;
 }

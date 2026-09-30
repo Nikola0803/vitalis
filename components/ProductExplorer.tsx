@@ -38,7 +38,7 @@ export default function ProductExplorer() {
           <Link className="product-card" href={`/shop/${product.slug}`} key={product.name} style={{ "--i": index } as React.CSSProperties} aria-label={`View ${product.name}`}>
             <div className="product-image-wrap">
               <span className="product-tag">{product.focus}</span>
-              <Image src="/images/vitalis-blank-vial.png" alt="Blank Vitalis specimen vial" width={1024} height={1536} className="product-vial" />
+              <Image src={product.image} alt={`${product.name} Vitalis vial and carton`} width={1254} height={1254} className="product-vial" />
               <span className="batch-dot"><span /> {product.coa ? "COA ready" : "Documentation pending"}</span>
             </div>
             <div className="product-info">
