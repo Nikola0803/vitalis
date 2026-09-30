@@ -1364,3 +1364,39 @@ body.modal-open { overflow: hidden; }
   .research-product-frame{width:min(330px,100%);padding:14px;border-radius:14px}
   .research-product-frame>img{height:270px!important}
 }
+
+/* Calculator hero photography: measured-dose action with Vitalis colour protection. */
+.calculator-hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background-color:#498d7e!important;
+  background-image:url('/images/calculator/dose-calculator-hero.png')!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:center!important;
+}
+.calculator-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(43,103,90,.98) 0%,rgba(58,124,109,.94) 38%,rgba(73,141,126,.66) 55%,rgba(73,141,126,.12) 78%,rgba(73,141,126,.03) 100%)!important;
+}
+.calculator-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:.13;
+  background-image:linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px);
+  background-size:62px 62px;
+  mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.25) 52%,transparent 72%);
+}
+.calculator-hero-copy{position:relative;z-index:2;max-width:600px}
+
+@media(max-width:650px){
+  .calculator-hero{background-size:auto 100%!important;background-position:68% center!important}
+  .calculator-hero::after{background:linear-gradient(90deg,rgba(43,103,90,.98) 0%,rgba(55,119,105,.91) 60%,rgba(73,141,126,.58) 100%)!important}
+  .calculator-hero-copy{max-width:100%}
+}
