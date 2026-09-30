@@ -1239,3 +1239,12 @@ body.modal-open { overflow: hidden; }
 .calculator-original-wrap{position:relative;z-index:5;margin-top:-70px}.calculator-original-wrap .original-calc{border-radius:16px;box-shadow:0 26px 65px rgba(19,63,58,.12)}
 @media(max-width:900px){.calculator-hero{padding-bottom:120px}.calculator-original-wrap{margin-top:-62px}}
 @media(max-width:650px){.calculator-page{background:linear-gradient(#fff 0,#fff 565px,#f7f9f7 720px,#fff 900px)}.calculator-hero{min-height:470px;padding:46px 22px 96px;background:#498d7e}.calculator-hero h1{font-size:50px}.calculator-hero-proof{gap:10px;justify-content:space-between}.calculator-hero-proof span{font-size:6px}.calculator-original-wrap{margin-top:-48px}}
+
+/* Collection cards use literal category photography rather than abstract decoration. */
+.collection-card{min-height:310px;color:#fff;background:#498d7e!important;border:0}
+.collection-card>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .35s ease}
+.collection-card:hover>img{transform:scale(1.035)}
+.collection-card::before{display:none}
+.collection-card::after{content:"";position:absolute;inset:0;z-index:-1;width:auto;height:auto;border:0;border-radius:0;background:linear-gradient(180deg,rgba(20,63,57,.06) 22%,rgba(20,63,57,.3) 56%,rgba(20,63,57,.94) 100%)}
+.collection-card>span,.collection-card>div,.collection-card>svg{position:relative;z-index:2}.collection-card>span{color:#fff}.collection-card small{color:rgba(255,255,255,.78);opacity:1}.collection-card h3{color:#fff;text-shadow:0 2px 20px rgba(7,35,31,.22)}.collection-card>svg{position:absolute}
+@media(max-width:650px){.collection-card{min-height:245px}.collection-card h3{font-size:20px}}

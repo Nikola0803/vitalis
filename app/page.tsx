@@ -98,10 +98,10 @@ export default function Home() {
       <section className="collections section">
         <div className="section-kicker"><span>Collections</span><span>Browse by format</span></div>
         <div className="collection-grid">
-          <Link href="/shop" className="collection-card blend-collection"><span>01</span><div><small>Paired research</small><h3>Blended<br />Compounds</h3></div><ArrowUpRight /></Link>
-          <Link href="/shop" className="collection-card full-collection"><span>02</span><div><small>Complete index</small><h3>Full Peptide<br />Collection</h3></div><ArrowUpRight /></Link>
-          <Link href="/shop" className="collection-card popular-collection"><span>03</span><div><small>Frequently requested</small><h3>Popular<br />Materials</h3></div><ArrowUpRight /></Link>
-          <Link href="/resources" className="collection-card supply-collection"><span>04</span><div><small>Laboratory handling</small><h3>Research<br />Supplies</h3></div><ArrowUpRight /></Link>
+          <Link href="/shop?focus=Blends" className="collection-card blend-collection"><Image src="/images/collections/blended-compounds.png" alt="Paired Vitalis research vials and carton" width={1254} height={1254}/><span>01</span><div><small>Paired research</small><h3>Blended<br />Compounds</h3></div><ArrowUpRight /></Link>
+          <Link href="/shop" className="collection-card full-collection"><Image src="/images/collections/full-peptide-collection.png" alt="Vitalis research material collection" width={1254} height={1254}/><span>02</span><div><small>Complete index</small><h3>Full Peptide<br />Collection</h3></div><ArrowUpRight /></Link>
+          <Link href="/shop" className="collection-card popular-collection"><Image src="/images/collections/popular-materials.png" alt="Popular Vitalis research materials" width={1254} height={1254}/><span>03</span><div><small>Frequently requested</small><h3>Popular<br />Materials</h3></div><ArrowUpRight /></Link>
+          <Link href="/resources" className="collection-card supply-collection"><Image src="/images/collections/research-supplies.png" alt="Vitalis laboratory research supplies" width={1254} height={1254}/><span>04</span><div><small>Laboratory handling</small><h3>Research<br />Supplies</h3></div><ArrowUpRight /></Link>
         </div>
       </section>
 
