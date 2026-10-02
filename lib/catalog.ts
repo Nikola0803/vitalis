@@ -70,7 +70,7 @@ const testidesReports: Record<string, string> = {
 };
 
 export const catalogue: CatalogProduct[] = [
-  make("retatrutide", "Retatrutide", "Metabolic", "A triple-receptor agonist research material for controlled metabolic signalling studies.", [
+  make("retatrutide", "GLP-3", "Metabolic", "A triple-receptor agonist research material for controlled metabolic signalling studies.", [
     { size: "10 mg", sku: "VIT-RETA-10", price: 119.99 }, { size: "20 mg", sku: "VIT-RETA-20", price: 209.99 }, { size: "30 mg", sku: "VIT-RETA-30", price: 289.99 },
   ], report("BW-RETA-10-040626-01_edited.pdf", "BW-RETA-10-040626-01", "BW-RETA-10-040626-01", "99.43%", "Sep 10, 2026")),
   make("bpc-157", "BPC-157", "Recovery", "A synthetic peptide supplied for laboratory research into tissue-repair signalling and resilience pathways.", [
@@ -115,7 +115,7 @@ export const catalogue: CatalogProduct[] = [
   make("epitalon", "Epitalon", "Longevity", "A tetrapeptide supplied for research into cellular ageing and telomere-associated pathways.", [
     { size: "10 mg", sku: "VIT-EPIT-10", price: 84.99 },
   ], report("BW-EPI-10mg-050926-01_edited.pdf", "BW-EPI-10mg-050926-01", "VTL-EPI70101", "99.18%", "Sep 17, 2026")),
-  make("tirzepatide", "Tirzepatide", "Metabolic", "A dual-receptor agonist research material for metabolic signalling models.", [
+  make("tirzepatide", "GLP-2", "Metabolic", "A dual-receptor agonist research material for metabolic signalling models.", [
     { size: "10 mg", sku: "VIT-TIRZ-10", price: 69.99 }, { size: "20 mg", sku: "VIT-TIRZ-20", price: 119.99, soldOut: true },
   ], report("BW-TIRZ-10mg-050926-01.pdf", "BW-TIRZ-10mg-050926-01", "VTL-TIR10102", "99.47%", "Sep 17, 2026")),
   make("glutathione", "Glutathione", "Cellular", "A tripeptide antioxidant research material for redox and oxidative-stress studies.", [

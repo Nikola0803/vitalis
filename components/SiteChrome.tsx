@@ -13,12 +13,12 @@ export function SiteHeader() {
       </div>
       <header className="site-header">
         <Link className="brand brand-logo" href="/" aria-label="Vitalis home"><VitalisLogo /></Link>
-        <nav aria-label="Primary navigation"><Link href="/shop">Shop</Link><Link href="/calculator">Calculator</Link><Link href="/coas">COAs</Link><Link href="/resources">Resources</Link><Link href="/about">About</Link></nav>
+        <nav aria-label="Primary navigation"><Link href="/shop">Shop</Link><Link href="/coas">COAs</Link><Link href="/resources">Resources</Link><Link href="/about">About</Link></nav>
         <div className="header-actions">
           <HeaderSearch />
           <details className="mobile-nav">
             <summary aria-label="Open navigation"><span /><span /></summary>
-            <nav aria-label="Mobile navigation"><Link href="/shop">Shop</Link><Link href="/calculator">Calculator</Link><Link href="/coas">COAs</Link><Link href="/resources">Resources</Link><Link href="/about">About</Link></nav>
+            <nav aria-label="Mobile navigation"><Link href="/shop">Shop</Link><Link href="/coas">COAs</Link><Link href="/resources">Resources</Link><Link href="/about">About</Link></nav>
           </details>
           <Link className="header-shop" href="/shop"><BagIcon size={16} /> Shop all</Link>
         </div>
@@ -39,7 +39,7 @@ export function SiteFooter() {
             <div className="footer-standard"><b>CA</b><span><strong>Canadian support</strong><small>Clear records · Local fulfilment</small></span></div>
           </div>
 
-          <div className="site-footer-column"><p>Shop</p><Link href="/shop">All products</Link><Link href="/shop?focus=blends">Blended compounds</Link><Link href="/coas">COA library</Link><Link href="/calculator">Calculator</Link></div>
+          <div className="site-footer-column"><p>Shop</p><Link href="/shop">All products</Link><Link href="/shop?focus=blends">Blended compounds</Link><Link href="/coas">COA library</Link></div>
           <div className="site-footer-column"><p>Support</p><Link href="/resources">Research resources</Link><Link href="/about#contact">Contact</Link><Link href="/about">Our standard</Link><Link href="/about#shipping">Shipping</Link></div>
           <div className="site-footer-column"><p>Company</p><Link href="/about">About Vitalis</Link><Link href="/about#quality">Quality standard</Link><Link href="/about#faq">FAQ</Link><Link href="/coas">Documentation</Link></div>
 
