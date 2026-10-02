@@ -92,9 +92,7 @@ export default function CoaLibrary() {
         <div className="coa-document-top"><span>VITALIS / CERTIFICATE OF ANALYSIS</span><span>{activeReport.lot}</span></div>
         <div className="coa-document-title"><div><small>Independent analytical report</small><h2 id="coa-modal-title">{activeReport.product} {activeReport.size.split(" / ")[0]}</h2></div><strong><CheckIcon size={15} /> Verified</strong></div>
         <div className="coa-document-meta"><div><small>Lot / report</small><b>{activeReport.lot}</b></div><div><small>Purity</small><b>{activeReport.purity}</b></div><div><small>Method</small><b>{activeReport.method}</b></div><div><small>Analyzed</small><b>{activeReport.date}</b></div></div>
-        {activeReport.localPreview
-          ? <iframe className="coa-pdf-frame" src={activeReport.url} title={`${activeReport.product} laboratory report`} />
-          : <div className="coa-external-report"><CheckIcon size={30}/><h3>Verified Testides record</h3><p>This product is connected to its report-specific third-party verification page.</p><a href={activeReport.externalUrl} target="_blank" rel="noreferrer">Visit certificate at Testides <ArrowUpRight size={15}/></a></div>}
+        <div className="coa-external-report"><CheckIcon size={30}/><h3>Verified Testides record</h3><p>This product is connected to its report-specific third-party verification page.</p><a href={activeReport.externalUrl} target="_blank" rel="noreferrer">Visit certificate at Testides <ArrowUpRight size={15}/></a></div>
         <div className="coa-document-foot"><span>Independent third-party laboratory</span>{activeReport.externalUrl ? <a href={activeReport.externalUrl} target="_blank" rel="noreferrer">Verify at Testides ↗</a> : <span>For research documentation</span>}</div>
       </section>
     </div>}

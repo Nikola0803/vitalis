@@ -17,7 +17,7 @@ const principles = [
 export default function AboutPage() {
   return <main className="about-page">
     <section className="about-premium-hero">
-      <div className="about-hero-copy"><p className="eyebrow">Built for Canadian research</p><h1>Less noise.<br/><em>More evidence.</em></h1><p>Vitalis brings research materials, batch documentation, and Canadian support into one clear system—so the record is as considered as the product.</p><div><Link className="button button-light" href="/shop">Explore the catalogue <ArrowUpRight size={16}/></Link><Link href="/coas">Browse reports ↗</Link></div></div>
+      <div className="about-hero-copy"><p className="eyebrow">Built for Canadian research</p><h1>Less noise.<br/><em>More evidence.</em></h1><p>Vitalis brings research materials, batch documentation, and Canadian support into one clear system—so the record is as considered as the product.</p><div><Link className="button button-light" href="/shop">Explore the catalogue <ArrowUpRight size={16}/></Link></div></div>
       <div className="about-hero-system" aria-label="Vitalis documentation system"><span className="about-hero-index">VITALIS / STANDARD 01</span><div className="about-record-card"><header><MapleMark size={30}/><span>CANADIAN OPERATED</span></header><strong>One standard.<br/>Every handoff.</strong><dl><div><dt>Material</dt><dd>Identified</dd></div><div><dt>Record</dt><dd>Connected</dd></div><div><dt>Support</dt><dd>Canadian</dd></div></dl></div><div className="about-floating-note"><CheckIcon size={15}/><span><b>Documentation first</b><small>Designed into the experience</small></span></div></div>
     </section>
 

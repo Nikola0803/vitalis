@@ -382,7 +382,7 @@ export const supplies: Product[] = [
     sizes: ["20ml"],
     image: `${CDN}/BAC_Water_20ml.png?v=1786623190`,
     categories: ["supplies"],
-    description: "Bacteriostatic Water is sterile water containing 0.9% benzyl alcohol. It is used for the reconstitution of peptide powders for research purposes.",
+    description: "Bacteriostatic Water is sterile water containing 0.9% benzyl alcohol, supplied for laboratory research use.",
   },
   {
     id: 102,
@@ -392,7 +392,7 @@ export const supplies: Product[] = [
     sizes: ["1ml"],
     image: `${CDN}/be2afa83-d2a1-426d-ad65-3c6ba76e5ade.webp?v=1786631441`,
     categories: ["supplies"],
-    description: "Pack of 10 insulin syringes with 1ml capacity and 100IU markings. Ideal for accurate measurement and reconstitution of research peptides.",
+    description: "Pack of 10 insulin syringes with 1ml capacity and 100IU markings. For accurate laboratory measurement of research compounds.",
   },
   {
     id: 103,
@@ -402,7 +402,7 @@ export const supplies: Product[] = [
     sizes: ["200 pack"],
     image: `${CDN}/030982d7-42c9-44db-8d0f-ab8eb5070d89.png?v=1786630831`,
     categories: ["supplies"],
-    description: "200-count alcohol prep pads for sterilizing vial tops and maintaining proper sterile technique during reconstitution and handling of research compounds.",
+    description: "200-count alcohol prep pads for sterilizing vial tops and maintaining proper sterile technique during laboratory handling of research compounds.",
   },
   {
     id: 104,
@@ -412,7 +412,7 @@ export const supplies: Product[] = [
     sizes: ["0.5ml"],
     image: `${CDN}/c5192332-5569-4f3f-87f1-67f1e895b626.png?v=1786631461`,
     categories: ["supplies"],
-    description: "Pack of 10 insulin syringes with 0.5ml capacity and 50IU markings. Ideal for accurate measurement and reconstitution of research compounds.",
+    description: "Pack of 10 insulin syringes with 0.5ml capacity and 50IU markings. For accurate laboratory measurement of research compounds.",
   },
 ];
 
@@ -436,9 +436,9 @@ export const collections = {
     products: allProducts.filter((p) => p.categories.includes("blends")),
   },
   supplies: {
-    name: "Reconstitution Supplies",
+    name: "Research Supplies",
     slug: "supplies",
-    description: "Everything you need to reconstitute and handle research peptides",
+    description: "Laboratory supplies for handling and storing research materials",
     products: supplies,
   },
   "cosmetic-anti-aging": {
@@ -515,7 +515,7 @@ export const collectionCards = [
     image: `https://yourhealthsupply.ca/cdn/shop/collections/light_629ccdc4-32f2-4d75-bce4-7fce1be6d9e0.png?v=1786625401`,
   },
   {
-    name: "Reconstitution Supplies",
+    name: "Research Supplies",
     slug: "supplies",
     image: `https://yourhealthsupply.ca/cdn/shop/collections/light_cba1c998-1b31-4730-bd86-29be0fd67866.png?v=1786625073`,
   },

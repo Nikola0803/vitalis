@@ -2,9 +2,8 @@ import { CheckIcon } from "@/components/Icons";
 
 const resources = [
   { no: "01", title: "Reading a Certificate of Analysis", copy: "A field guide to identity, purity, methods, and batch references.", type: "Documentation" },
-  { no: "02", title: "Research dilution fundamentals", copy: "Understand concentration math before opening the interactive planner.", type: "Laboratory basics" },
-  { no: "03", title: "Cold-chain handling notes", copy: "A practical overview of receiving, recording, and storing research materials.", type: "Handling" },
-  { no: "04", title: "Why batch identity matters", copy: "How traceable lots support repeatability and better research records.", type: "Quality systems" },
+  { no: "02", title: "Cold-chain handling notes", copy: "A practical overview of receiving, recording, and storing research materials.", type: "Handling" },
+  { no: "03", title: "Why batch identity matters", copy: "How traceable lots support repeatability and better research records.", type: "Quality systems" },
 ];
 
 export default function ResourcesPage() {

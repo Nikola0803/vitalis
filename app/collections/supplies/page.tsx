@@ -2,16 +2,16 @@ import CollectionPage from "@/components/CollectionPage";
 import { supplies } from "@/lib/products";
 
 export const metadata = {
-  title: "Reconstitution Supplies – Vitalis",
-  description: "Everything you need to reconstitute and handle research peptides safely.",
+  title: "Research Supplies – Vitalis",
+  description: "Laboratory supplies for handling and storing research materials.",
 };
 
 export default function SuppliesPage() {
   return (
     <CollectionPage
-      title="Reconstitution Supplies"
+      title="Research Supplies"
       products={supplies}
-      description="Everything you need to reconstitute and handle research peptides"
+      description="Laboratory supplies for handling and storing research materials"
     />
   );
 }

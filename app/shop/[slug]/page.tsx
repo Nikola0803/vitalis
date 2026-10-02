@@ -29,10 +29,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const product = catalogue.find((item) => item.slug === slug);
   if (!product) notFound();
   const sizes = product.size.split("/").map((item) => item.trim());
-  const externalReportId = product.coaUrl?.split("/").filter(Boolean).at(-1);
-  const hasReport = Boolean(product.coa || product.coaUrl);
-  const batch = product.coa?.lot ?? externalReportId ?? product.variants[0].sku;
-  const reportHref = product.coaUrl ?? (product.coa ? `/coas/${encodeURIComponent(product.coa.file)}` : "/coas");
+  const batch = product.coaUrl?.split("/").filter(Boolean).at(-1) ?? product.variants[0].sku;
+  const hasReport = Boolean(product.coaUrl);
   const related = [...catalogue.filter((item) => item.slug !== product.slug && item.focus === product.focus), ...catalogue.filter((item) => item.slug !== product.slug && item.focus !== product.focus)].slice(0, 4);
   const research = researchByFocus[product.focus] ?? researchByFocus.Cellular;
 
@@ -46,10 +44,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="pdp-image-foot"><span><CheckIcon size={14}/> Same universal vial standard</span><span>Image for presentation</span></div>
       </div>
       <div className="pdp-summary">
-        <div className="verified-label"><CheckIcon size={15}/> {hasReport ? "Third-party report available" : "Documentation pending"}</div>
         <h1>{product.name}</h1>
-        <div className="pdp-price"><strong>${product.price.toFixed(2)} CAD</strong><span>{product.coa ? `Purity ${product.purity}` : product.coaUrl ? "Verified report available" : "Report pending"}</span></div>
-        <div className="batch-line"><span>{hasReport ? "Current report" : "Product code"}</span><b>#{batch}</b><a href={reportHref} target={hasReport ? "_blank" : undefined} rel={hasReport ? "noreferrer" : undefined}>{hasReport ? "Verify COA ↗" : "COA library ↗"}</a></div>
+        <div className="pdp-price"><strong>${product.price.toFixed(2)} CAD</strong><span>{product.purity !== "Pending" ? `Purity ${product.purity}` : ""}</span></div>
+        <div className="batch-line"><span>{hasReport ? "Current report" : "Product code"}</span><b>#{batch}</b>{hasReport && product.coaUrl ? <a href={product.coaUrl} target="_blank" rel="noreferrer">Verify COA ↗</a> : null}</div>
         <ProductPurchase sizes={sizes} />
         <details className="trust-disclosure"><summary>Why trust this product?<span>+</span></summary><div><p>Batch-specific identity and purity documentation is available before purchase.</p><p>Canadian support can connect the physical lot to its analytical record.</p></div></details>
         <p className="pdp-description">{product.name} is supplied as a high-purity lyophilized research compound with consistent presentation, traceable batch identity, and supporting analytical documentation.</p>
@@ -69,9 +66,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="pdp-report-sheet">
           <header><span>VITALIS / REPORT OVERVIEW</span><b>{hasReport ? "COMPLETE" : "PENDING"}</b></header>
           <h3>{product.name}</h3>
-          <dl><div><dt>Report / lot</dt><dd>{batch}</dd></div><div><dt>Method</dt><dd>{product.coa?.method ?? "Pending"}</dd></div><div><dt>Purity</dt><dd>{product.coa?.purity ?? "Pending"}</dd></div><div><dt>Analyzed</dt><dd>{product.coa?.date ?? "Pending"}</dd></div></dl>
+          <dl><div><dt>Report / lot</dt><dd>{batch}</dd></div><div><dt>Method</dt><dd>Testides analytical record</dd></div><div><dt>Purity</dt><dd>{product.purity}</dd></div><div><dt>Analyzed</dt><dd>External record</dd></div></dl>
           <div className="pdp-report-line"><span /><span /><span /><span /><span /></div>
-          {hasReport ? <a href={reportHref} target="_blank" rel="noreferrer">{product.coaUrl ? "Verify certificate at Testides" : "Open original lab report"} <ArrowUpRight size={15}/></a> : <Link href="/coas">Browse published reports <ArrowUpRight size={15}/></Link>}
+          {hasReport && product.coaUrl ? <a href={product.coaUrl} target="_blank" rel="noreferrer">Verify certificate at Testides <ArrowUpRight size={15}/></a> : <span>Documentation pending</span>}
         </div>
       </div>
     </section>
@@ -90,9 +87,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     <section className="pdp-spec-band">
       <div className="pdp-spec-columns">
         <div><p>Technical classification</p><dl><div><dt>Material class</dt><dd>Research peptide</dd></div><div><dt>Source</dt><dd>Synthetic · laboratory produced</dd></div><div><dt>Physical form</dt><dd>Lyophilized powder</dd></div><div><dt>Available formats</dt><dd>{product.size}</dd></div><div><dt>Product code</dt><dd>{product.variants[0].sku}</dd></div></dl></div>
-        <div><p>Handling & storage</p><dl><div><dt>Storage conditions</dt><dd>2–8°C, protected from light</dd></div><div><dt>Recordkeeping</dt><dd>Keep lot identity attached</dd></div><div><dt>Preparation</dt><dd>Qualified laboratory protocols</dd></div><div><dt>Documentation</dt><dd>{hasReport ? "Report available" : "Report pending"}</dd></div></dl></div>
+        <div><p>Handling & storage</p><dl><div><dt>Storage conditions</dt><dd>2–8°C, protected from light</dd></div><div><dt>Recordkeeping</dt><dd>Keep lot identity attached</dd></div><div><dt>Preparation</dt><dd>Qualified laboratory protocols</dd></div></dl></div>
       </div>
-      <div className="pdp-proof-cards"><article><PackageIcon/><b>Cold storage</b><span>2–8°C and protected from light</span></article><article><FlaskIcon/><b>{product.coa ? `${product.purity} reported purity` : product.coaUrl ? "Verified Testides record" : "Report pending"}</b><span>{hasReport ? "Independent analytical documentation" : "No purity value shown without a report"}</span></article><article><DocumentIcon/><b>Lyophilized format</b><span>Consistent research presentation</span></article></div>
+      <div className="pdp-proof-cards"><article><PackageIcon/><b>Cold storage</b><span>2–8°C and protected from light</span></article><article><FlaskIcon/><b>{product.purity !== "Pending" ? `${product.purity} purity` : "Research material"}</b><span>Independently analyzed</span></article><article><DocumentIcon/><b>Lyophilized format</b><span>Consistent research presentation</span></article></div>
     </section>
 
     <section className="pdp-compare">
