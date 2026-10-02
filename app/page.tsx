@@ -106,7 +106,7 @@ export default function Home() {
       </section>
 
       <section className="quality section" id="quality">
-        <div className="quality-copy"><p className="eyebrow">The Vitalis standard</p><h2>Proof belongs<br />with the product.</h2><p>Every listed compound is paired with batch-level documentation. No scavenger hunts, no vague assurances—just the information your research deserves.</p><Link className="button button-dark" href="/coas">Browse certificates <ArrowUpRight /></Link></div>
+        <div className="quality-copy"><p className="eyebrow">The Vitalis standard</p><h2>Proof belongs<br />with the product.</h2><p>Every listed compound is paired with batch-level documentation. No scavenger hunts, no vague assurances—just the information your research deserves.</p><Link className="button button-dark" href="/shop">Shop all compounds <ArrowUpRight /></Link></div>
         <div className="quality-card">
           <div className="document-top"><span>VITALIS / COA</span><span>CA—26—0418</span></div>
           <div className="document-title"><MapleMark size={38} /><div><span>Certificate of analysis</span><strong>Batch verification</strong></div></div>
