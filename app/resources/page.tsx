@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowUpRight, CheckIcon } from "@/components/Icons";
+import { CheckIcon } from "@/components/Icons";
 
 const resources = [
   { no: "01", title: "Reading a Certificate of Analysis", copy: "A field guide to identity, purity, methods, and batch references.", type: "Documentation" },
@@ -12,6 +11,5 @@ export default function ResourcesPage() {
   return <main className="inner-page">
     <section className="page-hero resources-hero"><div><p className="eyebrow">Research library</p><h1>Better records start<br />with better context.</h1><p>Practical explainers for evaluating documents, planning laboratory work, and keeping every batch traceable.</p></div><div className="resource-index-visual"><span>VITALIS / INDEX</span>{["DOCUMENT", "MEASURE", "RECORD", "VERIFY"].map((item, i) => <div key={item}><b>0{i + 1}</b><p>{item}</p><CheckIcon size={14} /></div>)}</div></section>
     <section className="inner-section"><div className="inner-heading"><div><small>Essential reading</small><h2>Start with the standard</h2></div><p>Short, operational resources—not generic wellness content.</p></div><div className="resource-grid">{resources.map((item) => <article key={item.no}><span>{item.no} / {item.type}</span><h2>{item.title}</h2><p>{item.copy}</p><div className="resource-status"><CheckIcon size={14} /> Practical reference</div></article>)}</div></section>
-    <section className="tool-callout"><div><small>Interactive utility</small><h2>Need the number,<br />not another article?</h2><p>Use the dilution planner to translate vial mass and solvent volume into a documented working concentration.</p><Link className="button button-light" href="/calculator">Open calculator <ArrowUpRight /></Link></div><div className="tool-grid-visual"><span>10 mg</span><i>÷</i><span>2 mL</span><i>=</i><strong>5 mg/mL</strong></div></section>
   </main>;
 }

@@ -552,6 +552,29 @@ footer { padding-inline: max(32px, calc((100vw - 1320px) / 2)); }
   .about-values { padding-inline: 24px; gap: 30px; }
 }
 
+/* Product photography stays fully visible: contained, padded, and never cropped. */
+.coa-report-card{grid-template-columns:210px 1fr;min-height:260px}
+.coa-report-image{padding:28px 18px 18px;display:grid;place-items:center;background:linear-gradient(145deg,#edf4f1,#f8faf8)}
+.coa-report-image>img{width:100%;height:215px;object-fit:contain;object-position:center;filter:drop-shadow(0 13px 13px rgba(20,68,60,.14));transform:none}
+.coa-report-card:hover .coa-report-image>img{transform:scale(1.025)}
+.coa-report-image>span{left:12px;top:12px}
+.pdp-research-visual{min-height:470px;padding:24px;display:grid;place-items:center}
+.research-product-frame{width:min(410px,100%);aspect-ratio:1/1;padding:19px;display:grid;grid-template-rows:auto 1fr auto;position:relative;border:1px solid rgba(73,141,126,.2);border-radius:18px;background:radial-gradient(circle at 50% 46%,rgba(99,166,147,.18),transparent 43%),#f9fbf9;box-shadow:0 24px 55px rgba(20,76,66,.1);overflow:hidden}
+.research-product-frame::before{content:"";position:absolute;width:290px;height:290px;left:50%;top:50%;border:1px solid rgba(73,141,126,.14);border-radius:50%;transform:translate(-50%,-50%)}
+.research-product-meta,.research-product-foot{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;color:#76857f;font-size:7px;font-weight:800;letter-spacing:.13em}.research-product-meta b{color:var(--teal)}
+.research-product-frame>img{width:100%;height:330px;position:relative;z-index:1;object-fit:contain;object-position:center;filter:drop-shadow(0 20px 16px rgba(20,68,60,.16))}
+.research-product-foot{padding-top:12px;border-top:1px solid rgba(73,141,126,.16)}
+
+@media(max-width:650px){
+  .coa-report-card{grid-template-columns:112px 1fr;min-height:190px}
+  .coa-report-image{padding:25px 8px 10px}
+  .coa-report-image>img{height:158px}
+  .pdp-research-visual{min-height:360px;padding:0}
+  .research-product-frame{width:min(330px,100%);padding:14px;border-radius:14px}
+  .research-product-frame>img{height:270px}
+  .research-product-frame::before{width:230px;height:230px}
+}
+
 /* Original Vitalis calculator, finished in the shared EVLV/Vitalis system. */
 .calculator-page { padding-bottom: 90px; }
 .calculator-intro, .calculator-original-wrap, .calc-tips, .calculator-disclaimer { width: min(960px, calc(100% - 64px)); margin-inline: auto; }
@@ -1182,6 +1205,27 @@ body.modal-open { overflow: hidden; }
   .faq-list summary { min-height: 66px; font-size: 13px; }
 }
 .coa-pdf-frame{width:100%;height:min(68vh,760px);border:1px solid rgba(20,70,60,.14);background:#fff}
+.coa-external-report{min-height:310px;margin:22px 0 18px;padding:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #dce5df;background:#f3f7f4;text-align:center}.coa-external-report>svg{color:var(--teal)}.coa-external-report h3{margin:18px 0 8px;font:400 30px/1 Georgia,serif}.coa-external-report p{max-width:440px;margin:0;color:#74827d;font-size:11px;line-height:1.6}.coa-external-report a{margin-top:24px;padding:14px 18px;display:inline-flex;align-items:center;gap:22px;background:var(--teal);color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.coa-document-foot a{color:var(--teal);font-weight:800}
+
+/* Documentation cards show the report itself, never a cropped product photo. */
+.coa-report-image{padding:18px;display:flex;align-items:stretch;background:linear-gradient(145deg,#e8f1ed,#dcebe5)}
+.coa-report-image>span{left:12px;top:12px;z-index:2}
+.coa-paper{width:100%;min-height:184px;margin-top:15px;padding:22px 14px 14px;display:flex;flex-direction:column;border:1px solid rgba(73,141,126,.22);background:#fff;box-shadow:0 12px 24px rgba(11,47,44,.1);color:var(--teal);transform:rotate(-1.4deg)}
+.coa-paper small{font-size:7px;font-weight:800;letter-spacing:.14em}.coa-paper b{margin-top:13px;color:var(--ink);font-size:8px;line-height:1.35;overflow-wrap:anywhere}.coa-paper svg{width:100%;height:56px;margin:auto 0 10px;background-image:linear-gradient(rgba(73,141,126,.09) 1px,transparent 1px);background-size:100% 12px}.coa-paper i{padding-top:9px;display:flex;align-items:center;gap:5px;border-top:1px solid #dce5df;font-size:6px;font-style:normal;font-weight:850;letter-spacing:.08em}
+
+/* Product research profile uses a meaningful pathway map instead of another pack shot. */
+.pdp-research-visual{min-height:470px;padding:28px;display:block}
+.pdp-research-visual::before,.pdp-research-visual .science-orbit{display:none}
+.research-map{height:100%;min-height:414px;padding:24px;display:grid;grid-template-rows:auto 1fr auto;position:relative;border:1px solid rgba(73,141,126,.22);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(224,239,233,.82));box-shadow:0 24px 55px rgba(20,76,66,.1);overflow:hidden}
+.research-map::before{content:"";position:absolute;inset:58px 38px 60px;background-image:linear-gradient(rgba(73,141,126,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(73,141,126,.08) 1px,transparent 1px);background-size:34px 34px;mask-image:radial-gradient(circle,#000,transparent 74%)}
+.research-map-head,.research-map-foot{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;color:#6f817a;font-size:7px;font-weight:800;letter-spacing:.13em}.research-map-head b{color:var(--teal)}
+.research-map-core{width:148px;height:148px;place-self:center;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:2;border:1px solid rgba(73,141,126,.28);border-radius:50%;background:#fff;box-shadow:0 15px 32px rgba(31,92,81,.12);text-align:center}.research-map-core::before,.research-map-core::after{content:"";position:absolute;border:1px solid rgba(73,141,126,.2);border-radius:50%}.research-map-core::before{inset:-18px}.research-map-core::after{inset:-38px}.research-map-core svg{color:var(--teal)}.research-map-core small{margin:9px 0 4px;color:#82918b;font-size:6px;letter-spacing:.13em}.research-map-core strong{max-width:110px;font-size:13px;line-height:1.15}
+.research-map-nodes{position:absolute;inset:86px 22px 68px;z-index:3;pointer-events:none}.research-map-nodes div{width:42%;padding:10px 11px;display:flex;align-items:center;gap:9px;position:absolute;border:1px solid rgba(73,141,126,.19);border-radius:8px;background:rgba(255,255,255,.9);box-shadow:0 8px 20px rgba(26,77,68,.07)}.research-map-nodes div:nth-child(1){left:0;top:0}.research-map-nodes div:nth-child(2){right:0;top:20%}.research-map-nodes div:nth-child(3){left:0;bottom:20%}.research-map-nodes div:nth-child(4){right:0;bottom:0}.research-map-nodes i{flex:0 0 auto;color:var(--teal);font-size:7px;font-style:normal;font-weight:850}.research-map-nodes span{font-size:8px;font-weight:700;line-height:1.25}.research-map-foot{justify-content:flex-start;gap:18px}.research-map-foot span::before{content:"";width:5px;height:5px;margin-right:6px;display:inline-block;border-radius:50%;background:var(--sage)}
+
+@media(max-width:650px){
+  .coa-report-grid{gap:12px}.coa-report-card{min-height:178px;grid-template-columns:94px 1fr;border-radius:12px}.coa-report-image{padding:9px}.coa-report-image>span{left:7px;top:7px;padding:5px 6px;font-size:6px}.coa-paper{min-height:148px;margin-top:12px;padding:20px 8px 8px}.coa-paper b{font-size:6px}.coa-paper svg{height:42px}.coa-paper i{font-size:5px}.coa-report-copy{padding:14px}.coa-report-title h2{font-size:14px}.coa-report-copy dl{margin-top:12px;padding-top:11px;grid-template-columns:1fr;gap:7px}.coa-report-copy dl div:nth-child(3),.coa-report-copy dl div:nth-child(4){display:none}.coa-open-label{padding-top:10px;font-size:8px}.coa-external-report{min-height:240px;padding:30px 18px}.coa-external-report h3{font-size:25px}
+  .pdp-research-band{padding:62px 18px 54px;gap:24px}.pdp-research-visual{min-height:390px;padding:0}.research-map{min-height:390px;padding:18px;border-radius:14px}.research-map-nodes{inset:72px 10px 60px}.research-map-nodes div{width:45%;padding:8px}.research-map-nodes span{font-size:7px}.research-map-core{width:122px;height:122px}.research-map-core::before{inset:-12px}.research-map-core::after{inset:-26px}.research-map-core strong{font-size:11px}.research-map-foot{gap:9px;font-size:6px}
+}
 
 /* EVLV-derived compact premium footer, adapted to the Vitalis system. */
 .site-footer{display:block;padding:58px 0 20px;background:#123c37;color:#fff}
@@ -1300,4 +1344,112 @@ body.modal-open { overflow: hidden; }
   .final-cta>div{width:100%}
   .final-cta h2{font-size:52px}
   .final-cta .cta-copy{max-width:440px;margin:20px 0 26px;font-size:13px}
+}
+
+/* Final product-photo framing overrides: preserve the complete vial and carton. */
+.coa-report-card{grid-template-columns:210px 1fr;min-height:260px}
+.coa-report-image{padding:30px 16px 16px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#edf4f1,#f8faf8)}
+.coa-report-image>img{width:100%!important;height:215px!important;object-fit:contain!important;object-position:center!important;filter:drop-shadow(0 13px 13px rgba(20,68,60,.14))!important;transform:none}
+.coa-report-card:hover .coa-report-image>img{transform:scale(1.025)}
+.pdp-research-visual{min-height:470px;padding:24px;display:grid;place-items:center}
+.pdp-research-visual::before{display:none}
+.research-product-frame{width:min(410px,100%);aspect-ratio:1/1;padding:19px;display:grid;grid-template-rows:auto 1fr auto;position:relative;border:1px solid rgba(73,141,126,.2);border-radius:18px;background:radial-gradient(circle at 50% 46%,rgba(99,166,147,.18),transparent 43%),#f9fbf9;box-shadow:0 24px 55px rgba(20,76,66,.1);overflow:hidden}
+.research-product-frame>img{width:100%!important;height:330px!important;position:relative;z-index:1;object-fit:contain!important;object-position:center!important;filter:drop-shadow(0 20px 16px rgba(20,68,60,.16))!important}
+
+@media(max-width:650px){
+  .coa-report-card{grid-template-columns:112px 1fr;min-height:190px}
+  .coa-report-image{padding:25px 8px 10px}
+  .coa-report-image>img{height:158px!important}
+  .pdp-research-visual{min-height:360px;padding:0}
+  .research-product-frame{width:min(330px,100%);padding:14px;border-radius:14px}
+  .research-product-frame>img{height:270px!important}
+}
+
+/* Calculator hero photography: measured-dose action with Vitalis colour protection. */
+.calculator-hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background-color:#498d7e!important;
+  background-image:url('/images/calculator/dose-calculator-lab-v2.png')!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:center!important;
+}
+.calculator-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(43,103,90,.98) 0%,rgba(58,124,109,.94) 38%,rgba(73,141,126,.66) 55%,rgba(73,141,126,.12) 78%,rgba(73,141,126,.03) 100%)!important;
+}
+.calculator-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:.13;
+  background-image:linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px);
+  background-size:62px 62px;
+  mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.25) 52%,transparent 72%);
+}
+.calculator-hero-copy{position:relative;z-index:2;max-width:600px}
+
+@media(max-width:650px){
+  .calculator-hero{background-size:auto 100%!important;background-position:68% center!important}
+  .calculator-hero::after{background:linear-gradient(90deg,rgba(43,103,90,.98) 0%,rgba(55,119,105,.91) 60%,rgba(73,141,126,.58) 100%)!important}
+  .calculator-hero-copy{max-width:100%}
+}
+
+/* Resources hero photography: documented lab work with Vitalis materials in view. */
+.resources-hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background-color:#498d7e!important;
+  background-image:url('/images/resources/resources-documentation-hero.png')!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:center!important;
+}
+.resources-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(43,103,90,.98) 0%,rgba(58,124,109,.94) 36%,rgba(73,141,126,.64) 53%,rgba(73,141,126,.14) 76%,rgba(73,141,126,.03) 100%)!important;
+}
+.resources-hero>div{position:relative;z-index:2}
+.resources-hero .resource-index-visual{background:rgba(245,249,247,.9);border-color:rgba(255,255,255,.48);box-shadow:0 24px 60px rgba(22,66,59,.16);backdrop-filter:blur(12px)}
+
+@media(max-width:650px){
+  .resources-hero{background-size:auto 100%!important;background-position:70% center!important}
+  .resources-hero::after{background:linear-gradient(90deg,rgba(43,103,90,.98) 0%,rgba(55,119,105,.92) 59%,rgba(73,141,126,.62) 100%)!important}
+}
+
+/* COA hero: analytical verification, separated visually from the report library. */
+.coa-library-hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background-color:#245f57!important;
+  background-image:url('/images/coas/coa-verification-hero.png')!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:center!important;
+}
+.coa-library-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(20,78,72,.99) 0%,rgba(31,101,91,.94) 35%,rgba(57,126,112,.57) 52%,rgba(73,141,126,.08) 75%,rgba(73,141,126,0) 100%)!important;
+}
+.coa-library-hero>div{position:relative;z-index:2;max-width:600px}
+.coa-library-shell{padding-top:72px}
+
+@media(max-width:650px){
+  .coa-library-hero{background-size:auto 100%!important;background-position:72% center!important}
+  .coa-library-hero::after{background:linear-gradient(90deg,rgba(20,78,72,.99) 0%,rgba(39,108,97,.93) 61%,rgba(73,141,126,.55) 100%)!important}
+  .coa-library-shell{padding-top:48px}
 }

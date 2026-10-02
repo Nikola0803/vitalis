@@ -6,7 +6,6 @@ const navLinks = [
   { label: "ALL PEPTIDES", href: "/collections/all-peptides" },
   { label: "BLENDS", href: "/collections/blends" },
   { label: "SUPPLIES", href: "/collections/supplies" },
-  { label: "CALCULATOR", href: "/pages/peptide-calculator" },
   { label: "RESOURCES", href: "/pages/faqs" },
   { label: "CONTACT", href: "/pages/contact" },
 ];

@@ -28,6 +28,7 @@ export type CatalogProduct = {
   price: number;
   purity: string;
   coa?: CoaReport;
+  coaUrl?: string;
   comingSoon?: boolean;
 };
 
@@ -42,8 +43,34 @@ const report = (file: string, reportId: string, lot: string, purity: string, dat
   file, report: reportId, lot, purity, date, method: "HPLC-UV / LAL",
 });
 
+const testidesReports: Record<string, string> = {
+  "retatrutide": "https://testides.com/report/BW-RETA-10-040626",
+  "bpc-157": "https://testides.com/report/BW-BPC1-10-040626",
+  "tb-500": "https://testides.com/report/BW-TB500-5mg-050926",
+  "wolverine-blend": "https://testides.com/report/BW-BPC1-10-040626-2",
+  "cjc-1295-ipamorelin": "https://testides.com/report/BW-CJCI-10-040626",
+  "ghk-cu": "https://testides.com/report/BW-GHKC-100-040626",
+  "glow70-blend": "https://testides.com/report/BW-GLOW-70-040626",
+  "klow80-blend": "https://testides.com/report/BW-KLOW-80-040626",
+  "aod-9604": "https://testides.com/report/BW-AOD-10mg-050926",
+  "cjc-1295-no-dac": "https://testides.com/report/BW-CJCN-5mg-050926",
+  "ipamorelin": "https://testides.com/report/BW-IPA-10mg-050926",
+  "ss-31": "https://testides.com/report/BW-ELAM-40mg-050926",
+  "epitalon": "https://testides.com/report/BW-EPI-10mg-050926",
+  "tirzepatide": "https://testides.com/report/BW-TIRZ-10mg-050926",
+  "glutathione": "https://testides.com/report/BW-LGLU-1500mg-050926",
+  "kpv": "https://testides.com/report/BW-KPV-10mg-050926",
+  "melanotan-ii": "https://testides.com/report/BW-MELA-10mg-050926",
+  "mots-c": "https://testides.com/report/BW-MOTS-10-040626",
+  "pt-141": "https://testides.com/report/BW-PT141-10mg-050926",
+  "semax": "https://testides.com/report/BW-SEMAX-10mg-050926",
+  "selank": "https://testides.com/report/BW-SEL-10mg-050926",
+  "tesamorelin": "https://testides.com/report/BW-TESA-10mg-050926",
+  "thymosin-alpha-1": "https://testides.com/report/BW-TA1-10mg-050926",
+};
+
 export const catalogue: CatalogProduct[] = [
-  make("retatrutide", "Retatrutide", "Metabolic", "A triple-receptor agonist research material for controlled metabolic signalling studies.", [
+  make("retatrutide", "GLP-3", "Metabolic", "A triple-receptor agonist research material for controlled metabolic signalling studies.", [
     { size: "10 mg", sku: "VIT-RETA-10", price: 119.99 }, { size: "20 mg", sku: "VIT-RETA-20", price: 209.99 }, { size: "30 mg", sku: "VIT-RETA-30", price: 289.99 },
   ], report("BW-RETA-10-040626-01_edited.pdf", "BW-RETA-10-040626-01", "BW-RETA-10-040626-01", "99.43%", "Sep 10, 2026")),
   make("bpc-157", "BPC-157", "Recovery", "A synthetic peptide supplied for laboratory research into tissue-repair signalling and resilience pathways.", [
@@ -88,7 +115,7 @@ export const catalogue: CatalogProduct[] = [
   make("epitalon", "Epitalon", "Longevity", "A tetrapeptide supplied for research into cellular ageing and telomere-associated pathways.", [
     { size: "10 mg", sku: "VIT-EPIT-10", price: 84.99 },
   ], report("BW-EPI-10mg-050926-01_edited.pdf", "BW-EPI-10mg-050926-01", "VTL-EPI70101", "99.18%", "Sep 17, 2026")),
-  make("tirzepatide", "Tirzepatide", "Metabolic", "A dual-receptor agonist research material for metabolic signalling models.", [
+  make("tirzepatide", "GLP-2", "Metabolic", "A dual-receptor agonist research material for metabolic signalling models.", [
     { size: "10 mg", sku: "VIT-TIRZ-10", price: 69.99 }, { size: "20 mg", sku: "VIT-TIRZ-20", price: 119.99, soldOut: true },
   ], report("BW-TIRZ-10mg-050926-01.pdf", "BW-TIRZ-10mg-050926-01", "VTL-TIR10102", "99.47%", "Sep 17, 2026")),
   make("glutathione", "Glutathione", "Cellular", "A tripeptide antioxidant research material for redox and oxidative-stress studies.", [
@@ -127,14 +154,21 @@ export const catalogue: CatalogProduct[] = [
   make("thymosin-alpha-1", "Thymosin Alpha-1", "Recovery", "An immune-modulating peptide supplied for laboratory signalling and response studies.", [
     { size: "10 mg", sku: "VIT-TA1-10", price: 89.99 },
   ], report("BW-TA1-10mg-050926-01.pdf", "BW-TA1-10mg-050926-01", "VTL-TA10102", "99.49%", "Sep 17, 2026")),
-];
+].map((product) => ({ ...product, coaUrl: testidesReports[product.slug] }));
 
-export const coaRows = catalogue.flatMap((product) => product.coa ? [{
-  product: product.name,
-  lot: product.coa.lot,
-  report: product.coa.report,
-  purity: product.coa.purity,
-  method: product.coa.method,
-  date: product.coa.date,
-  url: `/coas/${encodeURIComponent(product.coa.file)}`,
-}] : []);
+export const coaRows = catalogue.flatMap((product) => {
+  if (!product.coa && !product.coaUrl) return [];
+  const externalReportId = product.coaUrl?.split("/").filter(Boolean).at(-1);
+  const reportId = product.coa?.report ?? externalReportId ?? product.variants[0].sku;
+  return [{
+    product: product.name,
+    lot: product.coa?.lot ?? reportId,
+    report: reportId,
+    purity: product.coa?.purity ?? "View verified report",
+    method: product.coa?.method ?? "Testides analytical record",
+    date: product.coa?.date ?? "External record",
+    url: product.coa ? `/coas/${encodeURIComponent(product.coa.file)}` : product.coaUrl!,
+    externalUrl: product.coaUrl,
+    localPreview: Boolean(product.coa),
+  }];
+});
