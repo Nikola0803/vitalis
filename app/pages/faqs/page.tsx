@@ -4,7 +4,7 @@ import { useState } from "react";
 const faqs = [
   {
     question: "What forms do your products come in (lyophilized vs. liquid)?",
-    answer: "Our products are supplied in lyophilized (freeze-dried) form for stability during storage and shipping. Lyophilized products are typically reconstituted with bacteriostatic (BAC) water when needed, and once reconstituted they generally should be refrigerated to help maintain stability. This is why we store and ship products in lyophilized form whenever possible—so they remain more stable in transit and arrive in the best condition.",
+    answer: "Our products are supplied in lyophilized (freeze-dried) form for stability during storage and shipping. We store and ship products in lyophilized form whenever possible so they remain more stable in transit and arrive in the best condition.",
     defaultOpen: true,
   },
   {
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: "Why is cold storage so important?",
-    answer: "Peptides are sensitive molecules that can degrade when exposed to heat, light, or moisture. Cold storage (2-8°C) significantly extends the shelf life of both lyophilized and reconstituted peptides. Improper storage can lead to loss of potency and research reliability.",
+    answer: "Peptides are sensitive molecules that can degrade when exposed to heat, light, or moisture. Cold storage (2-8°C) significantly extends the shelf life of lyophilized peptides. Improper storage can lead to loss of potency and research reliability.",
   },
   {
     question: "How do you store and handle products before shipping?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: "How should I store my products when they arrive?",
-    answer: "Lyophilized peptides should be stored in the refrigerator (2-8°C), protected from light. Once reconstituted, peptides should be stored in the refrigerator and used within 4-6 weeks. Never freeze reconstituted peptides.",
+    answer: "Lyophilized peptides should be stored in the refrigerator (2-8°C), protected from light.",
   },
   {
     question: "What if there is a problem with my order?",

@@ -33,7 +33,7 @@ function ProductPageContent({ slug }: { slug: string }) {
   const complimentaryProducts = allProductsWithSupplies.filter((p) => p.slug !== slug).slice(0, 5);
 
   const shopCategories = [
-    { name: "Reconstitution Supplies", slug: "supplies", image: "https://yourhealthsupply.ca/cdn/shop/collections/light_cba1c998-1b31-4730-bd86-29be0fd67866.png?v=1786625073" },
+    { name: "Research Supplies", slug: "supplies", image: "https://yourhealthsupply.ca/cdn/shop/collections/light_cba1c998-1b31-4730-bd86-29be0fd67866.png?v=1786625073" },
     { name: "Blended Compounds", slug: "blends", image: "https://yourhealthsupply.ca/cdn/shop/collections/blend.png?v=1786625006" },
     { name: "Cellular & Anti-Aging", slug: "cosmetic", image: "https://yourhealthsupply.ca/cdn/shop/collections/Cosmetic.png?v=1786625196" },
     { name: "Tissue Repair", slug: "recovery", image: "https://yourhealthsupply.ca/cdn/shop/collections/Recovery.png?v=1786625144" },
@@ -355,7 +355,6 @@ function ProductPageContent({ slug }: { slug: string }) {
                 {[
                   { label: "Storage Conditions", value: "2–8 °C, protected from light" },
                   { label: "Stability", value: "Lyophilized format supports extended stability when stored under recommended conditions" },
-                  { label: "Reconstitution", value: "For laboratory research protocols only, using appropriate sterile laboratory techniques" },
                 ].map((row) => (
                   <li key={row.label} style={{ fontFamily: DM, fontSize: 14, lineHeight: "21px", marginBottom: 20 }}>
                     <strong style={{ display: "block", color: "#fff", marginBottom: 2 }}>{row.label}:</strong>
@@ -371,7 +370,7 @@ function ProductPageContent({ slug }: { slug: string }) {
             {[
               { icon: "❄️", title: "Storage: 2–8°C, protected from light", desc: "Store as directed to help preserve product quality and research integrity." },
               { icon: "🔬", title: `Peptide Purity: ${product.purity || "≥99% (HPLC)"}`, desc: "HPLC testing confirms peptide purity by separating and measuring individual compounds within each sample." },
-              { icon: "🧪", title: "Format: Lyophilized Powder", desc: "Freeze-dried for stability. Reconstitution is required before use." },
+              { icon: "🧪", title: "Format: Lyophilized Powder", desc: "Freeze-dried for extended stability during storage and shipping." },
             ].map((card) => (
               <div key={card.title} style={{ background: "#fff", borderRadius: 8, padding: "28px 24px", textAlign: "center" }}>
                 <div style={{ fontSize: 32, marginBottom: 14 }}>{card.icon}</div>
