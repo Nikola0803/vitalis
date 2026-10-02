@@ -39,7 +39,7 @@ export default function ProductExplorer() {
             <div className="product-image-wrap">
               <span className="product-tag">{product.focus}</span>
               <Image src={product.image} alt={`${product.name} Vitalis vial and carton`} width={1254} height={1254} className="product-vial" />
-              <span className="batch-dot"><span /> {product.coa || product.coaUrl ? "COA ready" : "Documentation pending"}</span>
+              <span className="batch-dot"><span /> {product.coaUrl ? "COA ready" : "Documentation pending"}</span>
             </div>
             <div className="product-info">
               <div><h3>{product.name}</h3><p>{product.size}</p></div>
